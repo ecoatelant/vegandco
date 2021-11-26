@@ -1,0 +1,39 @@
+.navbar {
+    background: rgb(231, 231, 231);
+    color: #000;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.5em 0;
+    
+    .bloc_logo {
+        width: 30%;
+        a {
+            margin-left: 5em;
+            color: #000;
+        }
+    }
+
+    ul {
+        width: 40%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-right: 5em;
+    }
+
+}
+
+
+a {
+    text-decoration: none;
+    font-weight: 600;
+    color: rgb(26, 143, 238);
+    transition: all .3s ease;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
