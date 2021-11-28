@@ -12,7 +12,8 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: url(/media/bg.jpg) no-repeat center center fixed;
+  background-image: url("media/bg.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
@@ -28,14 +29,14 @@ header .navbar {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
-  padding: 2.2em 0;
+  padding: 2em 0;
 }
 
 header .navbar .navbar_wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 40%;
+  width: 60%;
 }
 
 header .navbar .navbar_wrapper .bloc_logo {
@@ -48,7 +49,8 @@ header .navbar .navbar_wrapper .bloc_logo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 30%;
+  width: 20%;
+  margin-right: 3m;
 }
 
 header .navbar .navbar_wrapper .bloc_logo a {
@@ -61,14 +63,19 @@ header .navbar .navbar_wrapper .nav_ul.nonlogin {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  width: 70%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 80%;
 }
 
 header .navbar .navbar_wrapper .nav_ul.nonlogin a:hover {
   text-decoration: underline;
+}
+
+header .navbar .navbar_wrapper .nav_ul.nonlogin a:first-child,
+header .navbar .navbar_wrapper .nav_ul.nonlogin a:nth-child(2) {
+  margin-right: 2.3em;
 }
 
 header .navbar .nav_ul {
@@ -84,7 +91,7 @@ header .navbar .nav_ul {
 }
 
 header .navbar .nav_ul .cta_login {
-  padding: 1em;
+  padding: 0.8em;
   width: 130px;
   text-align: center;
   background: #f8f8f8;
@@ -108,7 +115,7 @@ header .navbar .nav_ul .cta_login a {
 }
 
 header .navbar .nav_ul .cta_inscrire {
-  padding: 1em;
+  padding: 0.8em;
   width: 125px;
   text-align: center;
   background: #019ce4;
@@ -132,12 +139,12 @@ header .navbar .nav_ul .cta_inscrire a {
   color: white;
 }
 
-header .navbar .nav_ul .nav_compte {
-  display: none;
-}
-
 header .navbar .nav_ul.login {
   margin-right: 3em;
-  width: 60%;
+  width: 40%;
+}
+
+.x-display-none {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */
