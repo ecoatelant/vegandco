@@ -1,39 +1,111 @@
-.navbar {
-    background: rgb(231, 231, 231);
-    color: #000;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 1.5em 0;
-    
-    .bloc_logo {
-        width: 30%;
-        a {
-            margin-left: 5em;
-            color: #000;
-        }
-    }
-
-    ul {
-        width: 40%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin-right: 5em;
-    }
-
+* {
+    font-family: "Poppins", sans-serif !important;
 }
-
 
 a {
     text-decoration: none;
     font-weight: 600;
-    color: rgb(26, 143, 238);
-    transition: all .3s ease;
-
-    &:hover {
-        text-decoration: underline;
-    }
+    color: #000;
 }
 
+header {
+    display: flex;
+    background: url(/media/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+
+    .navbar {
+        position: fixed;
+        background: none;
+        color: #000;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 2.2em 0;
+
+        .navbar_wrapper {
+            display: flex;
+            width: 40%;
+
+            .bloc_logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30%;
+                a {
+                    font-size: 1.5em;
+                    font-weight: 600;
+                    color: #000;
+                }
+            }
+
+            .nav_ul.nonlogin {
+                display: flex;
+                justify-content: space-evenly;
+                width: 70%;
+                a {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        .nav_ul {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            .cta_login {
+                padding: 1em;
+                width: 130px;
+                text-align: center;
+                background: rgb(248, 248, 248);
+                border: solid 2px rgb(66, 66, 66);
+                border-radius: 2em;
+                transition: all 0.3s ease;
+                &:hover {
+                    background: rgb(66, 66, 66);
+                    border: solid 2px #fff;
+                    a {
+                        color: #fff;
+                    }
+                }
+                a {
+                    color: rgb(0, 0, 0);
+                }
+            }
+
+            .cta_inscrire {
+                padding: 1em;
+                width: 125px;
+                text-align: center;
+                background: rgb(1, 156, 228);
+                border: solid 2px rgb(255, 255, 255);
+                margin-left: 1em;
+                border-radius: 2em;
+                transition: all 0.3s ease;
+                &:hover {
+                    background: rgb(255, 255, 255);
+                    border: solid 2px rgb(1, 156, 228);
+                    a {
+                        color: rgb(1, 156, 228);
+                    }
+                }
+
+                a {
+                    color: rgb(255, 255, 255);
+                }
+            }
+
+            .nav_compte {
+                display: none;
+            }
+        }
+
+        .nav_ul.login {
+            margin-right: 3em;
+            width: 60%;
+        }
+    }
+}
