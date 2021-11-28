@@ -97,10 +97,6 @@ header {
                     color: rgb(255, 255, 255);
                 }
             }
-
-            .nav_compte {
-                display: none;
-            }
         }
 
         .nav_ul.login {
@@ -108,4 +104,8 @@ header {
             width: 60%;
         }
     }
+}
+
+.x-display-none {
+    display: none;
 }
