@@ -1,0 +1,330 @@
+@use '../abstracts'as *;
+
+footer {
+    background-color: $orange;
+    padding-block: 4em 8em;
+    padding-inline: 2em;
+    color: $blanc;
+    font-size: .9em;
+
+    @include breakpoints-mobile(small) {
+        padding-block-end: 7em;
+    }
+
+    @include breakpoints-desktop(medium) {
+        padding-inline: 4em;
+        font-size: 1.2em;
+    }
+
+    @include breakpoints-desktop(large) {
+        padding-block: 4em;
+        font-size: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        display: flex;
+    }
+
+
+    ol li a {
+        color: $blanc;
+    }
+
+
+    h6 {
+        font-size: 1em;
+        font-weight: 500;
+        letter-spacing: .5px;
+        margin-block: 0em 1em;
+
+        @include breakpoints-desktop(medium) {
+            font-size: 1.3em;
+        }
+
+        @include breakpoints-desktop(large) {
+            margin-block: 0em 1em;
+            font-size: 1.1em;
+        }
+
+    }
+
+    .presentation-footer {
+        @include breakpoints-desktop(large) {
+            width: 30%;
+        }
+
+        p.desc-footer {
+            @include breakpoints-desktop(medium) {
+                width: 75%;
+                margin-block-end: 2em;
+            }
+
+            @include breakpoints-desktop(large) {
+                margin-inline: 0;
+                width: 100%;
+            }
+        }
+
+        .svg_footer {
+            @include breakpoints-desktop(medium) {
+                margin-block-end: 1.5em;
+            }
+            @include breakpoints-desktop(large) {
+                margin-block-end: 1.5em;
+            }
+        }
+
+    }
+
+.wrapper-follow {
+
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoints-desktop(large) {
+        flex-direction: row;
+    }
+
+    .nav-footer {
+        display: flex;
+        margin-bottom: 2.5em;
+
+        @include breakpoints-desktop(large) {
+            margin-bottom: 0em;
+            margin-right: 6em;
+            width: 50%;
+        }
+        @include breakpoints-mobile(medium) {
+            margin-right: 3em;
+        }  
+
+        ol {
+            width: 50%;
+            line-height: 2.25em;
+
+            @include breakpoints-desktop(large) {
+                width: auto;
+                li:first-child {
+                    margin-right: 6em;
+                }
+            }
+            @include breakpoints-mobile(medium) {
+                li:first-child {
+                    margin-right: 2.5em;
+                }
+            }
+             
+
+            li {
+                font-size: 1.1em;
+                font-weight: 600;
+
+                @include breakpoints-mobile(small) {
+                    font-size: .9em;
+                }
+
+                @include breakpoints-desktop(medium) {
+                    font-size: 1.2em;
+                }
+
+                @include breakpoints-desktop(large) {
+                    margin-block-end: .5em;
+                    font-size: 1.1em;
+                }
+                @include breakpoints-mobile(medium) {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+
+    .followUs-container {
+        display: flex;
+        flex-direction: column;
+        @include breakpoints-desktop(large) {
+            align-items: flex-end;
+        }
+        @include breakpoints-desktop(xlarge) {
+            margin-bottom: 0em;
+        }
+
+        .followUs-footer {
+            display: flex;
+            flex-direction: column;
+
+            @include breakpoints-desktop(large) {
+                width: 100%;
+            }
+
+            .reseaux-footer {
+                display: flex;
+                width: 100%;
+                justify-content: flex-start;
+                margin-block-end: 3em;
+
+                @include breakpoints-desktop(large) {
+                    justify-content: flex-start;
+                }
+
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $blanc;
+                    padding: 1em;
+                    height: 60px;
+                    width: 60px;
+                    border-radius: 100%;
+
+                    @include breakpoints-mobile(xsmall) {
+                        height: 50px !important;
+                        width: 50px !important;
+                    }
+
+                    @include breakpoints-desktop(medium) {
+                        width: 100px;
+                        height: 100px;
+                    }
+
+                    @include breakpoints-desktop(large) {
+                        width: 60px;
+                        height: 60px;
+                    }
+
+                    &:first-child,
+                    &:nth-child(2),
+                    &:nth-child(3) {
+                        margin-right: 1em;
+
+                        @include breakpoints-mobile(small) {
+                            margin-right: .5em;
+                        }
+                        @include breakpoints-desktop(large) {
+                            margin-right: .75em;
+                        }
+                    }
+
+                    svg {
+                        height: 30px;
+                        width: 100%;
+
+                        &:first-child {
+                            @include breakpoints-mobile(xsmall) {
+                                height: 25px !important;
+                            }
+
+                            @include breakpoints-mobile(small) {
+                                height: 30px;
+                            }
+
+                            @include breakpoints-desktop(medium) {
+                                height: 45px;
+                            }
+
+                            @include breakpoints-desktop(large) {
+                                width: 25px;
+                                height: 25px;
+                            }
+
+                        }
+
+                        path {
+                            fill: $vert-royal;
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        .newsletter-footer {
+            width: 100%;
+
+            div {
+                display: flex;
+                background-color: $vert-royal;
+                justify-content: flex-start;
+                align-items: center;
+                border-radius: 3em;
+                width: 290px;
+                font-size: 11px;
+
+                @include breakpoints-mobile(small) {
+                    width: auto;
+                    align-items: flex-start;
+                    background: none;
+                    border: 0;
+                    flex-direction: column;
+                }
+
+                @include breakpoints-desktop(medium) {
+                    width: 480px;
+                    font-size: 1em;
+                }
+
+                @include breakpoints-desktop(large) {
+                    font-size: .7em;
+                    width: 250px;
+                }
+
+                input,
+                button {
+                    border: none;
+
+                }
+
+                input {
+                    z-index: 2;
+                    padding: 1.25em 1.75em;
+                    border-radius: 3em 0 0 3em;
+                    background: $blanc;
+
+                    &::placeholder {
+                        color: rgb(181, 181, 181);
+                    }
+
+                    @include breakpoints-mobile(small) {
+                        margin-block-end: 1em;
+                        border-radius: 3em;
+                    }
+
+                    @include breakpoints-desktop(large) {
+                        width: 170px;
+                    }
+                }
+
+                button {
+                    border-radius: 3em;
+                    padding: 1em;
+                    background: none;
+                    color: $blanc;
+
+                    @include breakpoints-mobile(small) {
+                        width: auto;
+                        background-color: $vert-royal;
+                    }
+                }
+            }
+        }
+    }
+
+}
+    
+
+
+
+    .copyright {
+        margin-block-start: 4em;
+        color: $blanc;
+        font-size: 12px;
+
+        @include breakpoints-desktop(medium) {
+            margin-block-start: 3em;
+            font-size: .9em;
+        }
+    }
+
+
+
+}

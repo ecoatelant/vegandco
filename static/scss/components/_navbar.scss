@@ -1,0 +1,173 @@
+@use '../abstracts'as *;
+
+header {
+
+    .logo-nav {
+        margin-block: 1.5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        svg {
+            width: 3.5em;
+            height: 3.5em;
+            path {
+                fill: $vert-royal;
+            }
+        
+        }
+    }
+
+    .fil-dariane {
+        padding-inline: 2em;
+        margin-block: 0 1em;
+        p {
+            text-align: center;
+            font-size: .9em;
+
+            a {
+                color: $vert-cta;
+            }
+
+        }
+    }
+
+    .navbar-mobile {
+        border-radius: 2em 2em 0 0;
+        background-color: $gris-clair;
+        -webkit-box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 0px 20px 50px 10px rgba(0, 0, 0, 0.4);
+        z-index: 10;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+
+        ol {
+            width: 100%;
+            height: 9vh;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            li {
+
+                &:nth-of-type(1) {
+                    svg {
+                        margin-top: 5px;
+                        height: 30px;
+                        @include breakpoints-mobile(xsmall) {
+                            height: 35px;
+                        }
+                        @include breakpoints-desktop(medium) {
+                            height: 45px;
+                        }
+                    }
+                }
+
+                &:nth-of-type(3) {
+                    svg {
+                        height: 30px;
+                        @include breakpoints-desktop(medium) {
+                            height: 40px;
+                        }
+                    }
+                }
+
+                &:nth-of-type(4) {
+                    svg {
+                        height: 40px;
+                        @include breakpoints-mobile(xsmall) {
+                            height: 35px;
+                        }
+                        @include breakpoints-desktop(medium) {
+                            height: 50px;
+                        }
+                    }
+                }
+
+                a {
+                    height: 100%;
+
+                    svg {
+                        height: 30px;
+                        width: auto;
+                        fill: $gris-fonce-medium;
+
+                        &.navbar-active {
+                            fill: $vert-royal;
+                        }
+
+
+                        @include breakpoints-mobile(xsmall) {
+                            height: 30px;
+                        }
+                        @include breakpoints-desktop(medium) {
+                            height: 50px;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-desktop {
+        position: fixed;
+        width: 100%;
+        background-color: $vert-royal;
+        padding: 2em;
+        display: flex;
+        justify-content: space-between;
+
+        .logo-desktop {
+            margin-left: 2em;
+            width: 5%;
+            height: 5%;
+            @include breakpoints-desktop(xlarge) {
+                width: 3%;
+            }
+        }
+
+        .active-link {
+            font-weight: 700;
+        }
+        a {
+            font-size: .8em;
+            color: $blanc;
+
+            &:hover {
+                font-weight: 700;
+            }
+        }
+        ol {
+            display: flex;
+            padding-right: 3em;
+            justify-content: flex-end;
+            align-items: center;
+
+            li:first-child, li:nth-child(2),
+            li:nth-child(3), li:nth-child(4),
+            .inscri-link {
+                margin-right: 3em;
+            }
+
+        svg {
+            width: 2em;
+            fill: $blanc;
+        }
+        }
+        .inscri-link {
+            border: 1px solid $blanc;
+            padding: 1em 1.5em;
+            border-radius: 2em;
+            transition: all .3s ease-out;
+            
+            &:hover {
+                font-weight: normal;
+                color: $noir;
+                background: $blanc;
+            }
+        }
+    }
+
+}
