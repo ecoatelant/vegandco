@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'Bodoni Moda 18pt';
+    src: url('BodoniModa18pt-BlackItalic.eot');
+    src: url('BodoniModa18pt-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('BodoniModa18pt-BlackItalic.woff2') format('woff2'),
+        url('BodoniModa18pt-BlackItalic.woff') format('woff'),
+        url('BodoniModa18pt-BlackItalic.ttf') format('truetype'),
+        url('BodoniModa18pt-BlackItalic.svg#BodoniModa18pt-BlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda 18pt';
+    src: url('BodoniModa18pt-BoldItalic.eot');
+    src: url('BodoniModa18pt-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('BodoniModa18pt-BoldItalic.woff2') format('woff2'),
+        url('BodoniModa18pt-BoldItalic.woff') format('woff'),
+        url('BodoniModa18pt-BoldItalic.ttf') format('truetype'),
+        url('BodoniModa18pt-BoldItalic.svg#BodoniModa18pt-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda 18pt';
+    src: url('BodoniModa18pt-MediumItalic.eot');
+    src: url('BodoniModa18pt-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('BodoniModa18pt-MediumItalic.woff2') format('woff2'),
+        url('BodoniModa18pt-MediumItalic.woff') format('woff'),
+        url('BodoniModa18pt-MediumItalic.ttf') format('truetype'),
+        url('BodoniModa18pt-MediumItalic.svg#BodoniModa18pt-MediumItalic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda 18pt';
+    src: url('BodoniModa18pt-SemiBold.eot');
+    src: url('BodoniModa18pt-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('BodoniModa18pt-SemiBold.woff2') format('woff2'),
+        url('BodoniModa18pt-SemiBold.woff') format('woff'),
+        url('BodoniModa18pt-SemiBold.ttf') format('truetype'),
+        url('BodoniModa18pt-SemiBold.svg#BodoniModa18pt-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda 18pt';
+    src: url('BodoniModa18pt-Regular.eot');
+    src: url('BodoniModa18pt-Regular.eot?#iefix') format('embedded-opentype'),
+        url('BodoniModa18pt-Regular.woff2') format('woff2'),
+        url('BodoniModa18pt-Regular.woff') format('woff'),
+        url('BodoniModa18pt-Regular.ttf') format('truetype'),
+        url('BodoniModa18pt-Regular.svg#BodoniModa18pt-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda 18pt';
+    src: url('BodoniModa18pt-Medium.eot');
+    src: url('BodoniModa18pt-Medium.eot?#iefix') format('embedded-opentype'),
+        url('BodoniModa18pt-Medium.woff2') format('woff2'),
+        url('BodoniModa18pt-Medium.woff') format('woff'),
+        url('BodoniModa18pt-Medium.ttf') format('truetype'),
+        url('BodoniModa18pt-Medium.svg#BodoniModa18pt-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda 18pt';
+    src: url('BodoniModa18pt-Black.eot');
+    src: url('BodoniModa18pt-Black.eot?#iefix') format('embedded-opentype'),
+        url('BodoniModa18pt-Black.woff2') format('woff2'),
+        url('BodoniModa18pt-Black.woff') format('woff'),
+        url('BodoniModa18pt-Black.ttf') format('truetype'),
+        url('BodoniModa18pt-Black.svg#BodoniModa18pt-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda 18pt';
+    src: url('BodoniModa18pt-SemiBoldItalic.eot');
+    src: url('BodoniModa18pt-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('BodoniModa18pt-SemiBoldItalic.woff2') format('woff2'),
+        url('BodoniModa18pt-SemiBoldItalic.woff') format('woff'),
+        url('BodoniModa18pt-SemiBoldItalic.ttf') format('truetype'),
+        url('BodoniModa18pt-SemiBoldItalic.svg#BodoniModa18pt-SemiBoldItalic') format('svg');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda 18pt';
+    src: url('BodoniModa18pt-Italic.eot');
+    src: url('BodoniModa18pt-Italic.eot?#iefix') format('embedded-opentype'),
+        url('BodoniModa18pt-Italic.woff2') format('woff2'),
+        url('BodoniModa18pt-Italic.woff') format('woff'),
+        url('BodoniModa18pt-Italic.ttf') format('truetype'),
+        url('BodoniModa18pt-Italic.svg#BodoniModa18pt-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda 18pt';
+    src: url('BodoniModa18pt-ExtraBold.eot');
+    src: url('BodoniModa18pt-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('BodoniModa18pt-ExtraBold.woff2') format('woff2'),
+        url('BodoniModa18pt-ExtraBold.woff') format('woff'),
+        url('BodoniModa18pt-ExtraBold.ttf') format('truetype'),
+        url('BodoniModa18pt-ExtraBold.svg#BodoniModa18pt-ExtraBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda 18pt';
+    src: url('BodoniModa18pt-ExtraBoldItalic.eot');
+    src: url('BodoniModa18pt-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('BodoniModa18pt-ExtraBoldItalic.woff2') format('woff2'),
+        url('BodoniModa18pt-ExtraBoldItalic.woff') format('woff'),
+        url('BodoniModa18pt-ExtraBoldItalic.ttf') format('truetype'),
+        url('BodoniModa18pt-ExtraBoldItalic.svg#BodoniModa18pt-ExtraBoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda 18pt';
+    src: url('BodoniModa18pt-Bold.eot');
+    src: url('BodoniModa18pt-Bold.eot?#iefix') format('embedded-opentype'),
+        url('BodoniModa18pt-Bold.woff2') format('woff2'),
+        url('BodoniModa18pt-Bold.woff') format('woff'),
+        url('BodoniModa18pt-Bold.ttf') format('truetype'),
+        url('BodoniModa18pt-Bold.svg#BodoniModa18pt-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
