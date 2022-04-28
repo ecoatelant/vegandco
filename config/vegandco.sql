@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 29 mars 2022 à 22:52
+-- Généré le : jeu. 28 avr. 2022 à 17:42
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -22,6 +22,21 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `vegandco` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `vegandco`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `abonnement`
+--
+
+DROP TABLE IF EXISTS `abonnement`;
+CREATE TABLE IF NOT EXISTS `abonnement` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prix` double NOT NULL,
+  `actif` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -64,9 +79,9 @@ DROP TABLE IF EXISTS `commentaires`;
 CREATE TABLE IF NOT EXISTS `commentaires` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL,
+  `contenu` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `auteur` int(255) NOT NULL,
   `recette` int(255) NOT NULL,
-  `contenu` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -151,20 +166,18 @@ CREATE TABLE IF NOT EXISTS `ingredient_recette` (
 DROP TABLE IF EXISTS `recette`;
 CREATE TABLE IF NOT EXISTS `recette` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
+  `moderee` datetime NOT NULL,
   `titre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `auteur` int(11) NOT NULL,
   `temps` time NOT NULL,
   `difficulte` int(1) NOT NULL,
   `prix` double NOT NULL,
+  `preparation` time NOT NULL,
   `cuisson` time NOT NULL,
   `repos` time NOT NULL,
-  `preparation` time NOT NULL,
-  `categorie` int(11) NOT NULL,
-  `auteur` int(11) NOT NULL,
-  `photo` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `personne` tinyint(4) NOT NULL,
-  `updated` datetime NOT NULL,
-  `moderation` datetime NOT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `note` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `categorie` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -279,22 +292,37 @@ CREATE TABLE IF NOT EXISTS `type_quantite` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `type_utilisateur`
+--
+
+DROP TABLE IF EXISTS `type_utilisateur`;
+CREATE TABLE IF NOT EXISTS `type_utilisateur` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `utilisateur`
 --
 
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
+  `creation` datetime NOT NULL,
   `pseudo` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(320) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mdp` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `newsletter` tinyint(1) NOT NULL,
-  `created` datetime NOT NULL,
   `prenom` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nom` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `premium` tinyint(1) NOT NULL,
-  `date_vegetarien` date NOT NULL,
+  `email` varchar(320) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `confirmation` tinyint(1) NOT NULL,
+  `hash_mdp` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `newsletter` tinyint(1) NOT NULL,
+  `vegetarisme` date DEFAULT NULL,
   `signature` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type_utilisateur` int(255) NOT NULL,
+  `abonnement` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
