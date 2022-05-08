@@ -1,0 +1,15 @@
+.view_recipes {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 12.5%;
+}
+
+.view_one_recipe {
+    width: 28.3%;
+    height: 435px;
+    margin: 2.5%;
+}
+
+.view_one_recipe img {
+    width: 90%;
+}

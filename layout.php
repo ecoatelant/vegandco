@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- <link rel="icon" href="/images/favicon.ico"> -->
+    <link rel="icon" href="/images/favicon.ico">
     <title><?= $pageTitle ?? 'Veg&Co' ?></title>
-    <link href="/../css/style.css" rel="stylesheet">
+    <link href="/styles/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-     <?php //require 'includes/nav_test.html' ?> 
+    <?php require 'includes/inc_header.php' ?> 
 
     <?= (isset($pageContent)) ? $pageContent : $error = '403'; ?>
 
