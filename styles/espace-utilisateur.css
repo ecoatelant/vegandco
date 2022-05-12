@@ -1,6 +1,8 @@
 .deconnexion {
     float: right;
     margin-right: 100px;
+    line-height: normal;
+    margin-top: 5em;
 }
 
 .informations {

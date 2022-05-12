@@ -50,6 +50,55 @@
             } catch (PDOException $e) {}
         }
 
+        function emailExistant($email){
+            try{
+                $selectPreparee = Connexion::$bdd->prepare('
+                    SELECT *
+                    FROM utilisateur
+                    WHERE email=:email');
+                $reponse = array(':email' => $email);
+                $selectPreparee->execute($reponse);
+                $resultat = $selectPreparee->fetchAll();
+                return count($resultat)>0;
+            } catch (PDOException $e) {}
+        }
+
+        function nouveauCodeRecuperation($email_recuperation, $code_recuperation){
+            try{
+                $insertPreparee = Connexion::$bdd->prepare('
+                    INSERT INTO recuperation(email, code_recuperation, date_heure_recuperation) 
+                        VALUES (:emailrecuperation,:coderecuperation, NOW())');
+                $reponse = array(':emailrecuperation'=>$email_recuperation, ':coderecuperation'=>$code_recuperation);
+                $insertPreparee->execute($reponse);
+            } catch (PDOException $e) {}
+        }
+
+        function verificationCodeRecuperationInexistant($email){
+            try{
+                $selectPreparee = Connexion::$bdd->prepare('
+                    SELECT *
+                    FROM recuperation
+                    WHERE email=:email');
+                $reponse = array(':email' => $email);
+                $selectPreparee->execute($reponse);
+                $resultat = $selectPreparee->fetchAll();
+                return count($resultat)==0;
+            } catch (PDOException $e) {}
+        }
+
+        function mAJCodeRecuperation($email, $code){
+            try{
+                $majPreparee = Connexion::$bdd->prepare('
+                UPDATE recuperation 
+                SET 
+                    code_recuperation=:coderecuperation,
+                    date_heure_recuperation= NOW()
+                WHERE email=:emailrecuperation');
+                $reponse = array(':emailrecuperation'=>$$email, ':coderecuperation'=>$code_recuperati$codeon);
+                $majPreparee->execute($reponse);
+            } catch (PDOException $e) {}
+        }
+
     }
 
 ?>

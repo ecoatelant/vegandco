@@ -32,7 +32,10 @@ if (!in_array($page, array('connexion', 'recette', 'espace-utilisateur', 'actual
         require 'layout.php';
     } else { // Ni module ni page static
         $error = '404';
-        require "includes/error.php";
+        ob_start();
+        require_once 'includes'.DIRECTORY_SEPARATOR.'error.php';
+        $pageContent = ob_get_clean();
+        require_once 'layout.php';
         http_response_code(404);
         die;
     }

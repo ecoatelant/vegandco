@@ -96,7 +96,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="inscri-link" href="connexion/formInscription" rel="noopener noreferrer">
+                    <a class="inscri-link" href="/connexion/formInscription" rel="noopener noreferrer">
                         S'inscrire
                     </a>
                 </li>

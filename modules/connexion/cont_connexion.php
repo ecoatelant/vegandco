@@ -69,7 +69,43 @@
             $this->vueConnexion->formInscription();
         }
 
+        function mDPOublie(){
+            $this->vueConnexion->mDPOublie();
+        }
 
+        function recupMDPOublie(){
+            if(isset($_POST['recup_submit'], $_POST['recup_email'])) {
+                //Suppression de toutes les balises HTML afin d'éviter les injections SQL.
+                $recup_email=htmlspecialchars($_POST['recup_email']);
+                //Vérification de la validité de l'adresse e-mail.
+                if(filter_var($recup_email, FILTER_VALIDATE_EMAIL)){
+                    unset($_SESSION['erreur']);
+                    if($this->modeleConnexion->emailExistant($recup_email)){
+                        $_SESSION['recup_email'] = $recup_email;
+                        $recup_code = "";
+                        $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                        $caracteresLength = strlen($caracteres);
+                        for($i=0; $i<6; $i++){
+                            $recup_code.=$caracteres[rand(0, $caracteresLength - 1)];
+                        }
+                        $_SESSION['recup_code'] = $recup_code;
+                        
+                        //Vérification si l'utilisateur avait déjà demandé un code de récupération
+                        if($this->modeleConnexion->verificationCodeRecuperationInexistant($_SESSION['recup_email'])){
+                            $this->modeleConnexion->nouveauCodeRecuperation($_SESSION['recup_email'], $_SESSION['recup_code']);
+                        }else {
+                            $this->modeleConnexion->mAJCodeRecuperation($_SESSION['recup_email'], $_SESSION['recup_code']);
+                        }
+                    }else{
+                        $_SESSION['erreur'] = "L'adresse e-mail renseignée n'existe pas dans notre base de donnée.";
+                        header('Location: /connexion/mot-de-passe-oublie');
+                    }
+                }else{
+                    $_SESSION['erreur'] = "Veuillez entre une adresse e-mail valide s'il vous plaît.";
+                    header('Location: /connexion/mot-de-passe-oublie');
+                } 
+            }
+        }
        
     }
 

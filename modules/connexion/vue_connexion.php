@@ -19,8 +19,8 @@
                                 </svg>
                             </div>
                             <picture>
-                                <source srcset="/connexion_mob.a36f04da.jpg" media="(max-width: 1023px)">
-                                <img src="/connexion_desk.d0cb8195.jpg" alt="visuel téléphone avec des légumes autour">
+                                <source srcset="../media/connexion_mob.a36f04da.jpg" media="(max-width: 1023px)">
+                                <img src="../media/connexion_desk.d0cb8195.jpg" alt="visuel téléphone avec des légumes autour">
                             </picture>
                         </div>
                         <div class="signup">
@@ -37,7 +37,7 @@
                                     </div>
 
                                 <p class="oubli">Avez-vous oublié votre mot de passe ?
-                                    <a href="">Mot de passe oublié</a>
+                                    <a href="/connexion/mot-de-passe-oublie">Mot de passe oublié</a>
                                     </p>
                                     <div>
                                         <button class="registerbtn cta" type="submit">Se connecter</button>
@@ -76,8 +76,8 @@
                     <article>
                         <div class="image-slot">
                             <picture>
-                                <source srcset="/inscription_mob.b39f6905.jpg" media="(max-width: 1023px)">
-                                <img src="/inscription_desktop.05b1434d.jpg" alt="visuel téléphone avec des légumes autour">
+                                <source srcset="../media/inscription_mob.b39f6905.jpg" media="(max-width: 1023px)">
+                                <img src="../media/inscription_desktop.05b1434d.jpg" alt="visuel téléphone avec des légumes autour">
                             </picture>
                         </div>
                         <div class="signup">
@@ -146,6 +146,42 @@
             <main>
                 <section>
                     <p>L'identifiant ou le mot de passe que vous avez saisi est erroné, veuillez recommencer s'il vous plait.</p>
+                </section>
+            </main>
+            <?php
+        }
+
+        function mDPOublie(){
+            ?>
+            <main class="inscription mot-de-passe">
+                <section>
+                    <article>
+                        <div class="image-slot">
+                            <picture>
+                                <source srcset="../media/motdepasse_mob.7eb7a64f.jpg" media="(max-width: 1023px)">
+                                <img src="../media/motdepasse_desktop.200fc154.jpg" alt="visuel téléphone avec des légumes autour">
+                            </picture>
+                        </div>
+                        <div class="signup">
+                            <h1>Mot de passe oublié</h1>
+                            <div class="fsignup">
+                                <form action="/connexion/recuperation-mdp-oublie" method="post">
+                                    <div>
+                                        <label for="nom">Adresse-email</label>
+                                        <input type="email" id="nom" name="recup_email" placeholder="Entrez votre adresse-email" required="">
+                                    </div>
+                                    <div>
+                                        <button class="registerbtn cta" name="recup_submit" type="submit">Valider</button>
+                                    </div>
+                                    <div>
+                                        <?php 
+                                        if(isset($_SESSION['erreur'])) echo '<span>'.$_SESSION['erreur'].'</span>';
+                                        ?>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </article>
                 </section>
             </main>
             <?php

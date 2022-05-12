@@ -55,4 +55,16 @@ class ModeleRecette extends Connexion {
         }
     }
 
+    function getGrandeCategoriesRecettes(){
+        try {
+            $requete = Connexion::$bdd->prepare('
+                SELECT * 
+                FROM categorie_recette
+                WHERE parent IS NULL');
+            $requete->execute();
+            $resultat = $requete->fetchAll();
+            return $resultat;
+        } catch (PDOException $e) {}
+    }
+
 }

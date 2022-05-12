@@ -11,16 +11,18 @@ class VueRecette {
         <?php
     }
 
-    public function afficherRecettes($recettes){
+    public function afficherRecettes($recettes, $categories){
         ?>
         <main>
             <h1>Recettes</h1>
             <input type="search">
             <select>
-                <option value="categorie">Catégorie</option>
-                <option value="entree">Entrée</option>
-                <option value="plat">Plat</option>
-                <option value="dessert">Dessert</option>
+                <option value="">Catégorie</option>
+                <?php 
+                foreach($categories as &$categorie){
+                    ?>
+                        <option value="<?=$categorie['id']?>"><?=$categorie['nom']?></option>
+                    <?php } ?>
             </select>
             <a href="recette/nouvelle">Ajouter une recette</a>
         
@@ -157,7 +159,7 @@ class VueRecette {
             <h2>Ajouter une recette</h2>
             <form action="recette/ajoutNouvelle" method="post">
                 <div class="image">
-                    <input type="file" name="img" accept="image/png, image/jpeg">
+                    <input type="file" name="img" accept="image/*">
                 </div>
                 <div class="premier_ligne">
                     <input type="text" name="titre" placeholder="Titre de la recette">

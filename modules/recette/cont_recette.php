@@ -20,7 +20,8 @@ class ContRecette {
 
     public function listeRecettes () {
         $listesRecettes = $this->modeleRecette->getListeRecettes();
-        $this->vueRecette->afficherRecettes($listesRecettes);
+        $listesCategories = $this->modeleRecette->getGrandeCategoriesRecettes();
+        $this->vueRecette->afficherRecettes($listesRecettes, $listesCategories);
     }
 
     public function nouvelleRecette() {

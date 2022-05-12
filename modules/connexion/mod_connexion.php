@@ -8,9 +8,8 @@
 
             $controleurConnexion = new ContConnexion();
 
-            $action = $url['1'];
-
             if (isset($url[1])) {
+                $action = $url['1'];
                 switch ($action) {
                     case "connexion":
                         $controleurConnexion->connexion();
@@ -26,6 +25,12 @@
                         break;
                     case "formInscription":
                         $controleurConnexion->formInscription();
+                        break;
+                    case "mot-de-passe-oublie":
+                        $controleurConnexion->mDPOublie();
+                        break;
+                    case "recuperation-mdp-oublie":
+                        $controleurConnexion->recupMDPOublie();
                         break;
                 }
             }
