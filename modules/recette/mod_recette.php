@@ -19,11 +19,13 @@ class ModRecette {
                 //         // Page d'accueil avec toutes les recettes
                 //         $controleurRecette->affichagePageRecettes($url[2]);
                      }
+                     break;
                 case 'nouvelle':
                     $controleurRecette->nouvelleRecette();
+                    break;
                 case 'ajoutNouvelle':
                     $controleurRecette->ajoutNouvelleRecette();
-                
+                    break;
             }
         }else{
             $controleurRecette->listeRecettes();

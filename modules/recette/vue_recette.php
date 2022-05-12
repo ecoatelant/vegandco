@@ -45,27 +45,100 @@ class VueRecette {
     public function afficherRecette($recette){
         foreach ($recette as &$recette) {
             ?>
-
-        <head>
-            <link rel="stylesheet" href="../../styles/recettes.css">
-        </head>
             <main class="recettes">
                 <section class="pres-recette">
                     <article class="pres-slot">
                         <h1><?= $recette['titre']?></h1>
-                        <div class="img-recette">
-                            <img src="../../data/img_recette/<?php echo $recette['image'] ?>">
-                        </div>
-                        <!-- TODO : avis -->
+                    <div class="img-recette">
+                        <img src="../../data/img_recette/<?php echo $recette['image'] ?>">
+                    </div>
+                    <div class="svg-avis">
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.09789 1.8541C8.69659 0.011477 11.3034 0.0114784 11.9021 1.8541L12.6942 4.2918C12.9619 5.11584 13.7298 5.67376 14.5963 5.67376H17.1594C19.0969 5.67376 19.9024 8.15299 18.335 9.29179L16.2614 10.7984C15.5604 11.3077 15.2671 12.2104 15.5348 13.0344L16.3269 15.4721C16.9256 17.3148 14.8166 18.847 13.2492 17.7082L11.1756 16.2016C10.4746 15.6923 9.5254 15.6923 8.82443 16.2016L6.7508 17.7082C5.18337 18.847 3.07441 17.3148 3.67312 15.4721L4.46517 13.0344C4.73292 12.2104 4.43961 11.3077 3.73863 10.7984L1.665 9.29179C0.0975747 8.15299 0.903127 5.67376 2.84057 5.67376H5.40372C6.27017 5.67376 7.03808 5.11584 7.30583 4.2918L8.09789 1.8541Z" fill="black"></path>
+                        </svg>
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.09789 1.8541C8.69659 0.011477 11.3034 0.0114784 11.9021 1.8541L12.6942 4.2918C12.9619 5.11584 13.7298 5.67376 14.5963 5.67376H17.1594C19.0969 5.67376 19.9024 8.15299 18.335 9.29179L16.2614 10.7984C15.5604 11.3077 15.2671 12.2104 15.5348 13.0344L16.3269 15.4721C16.9256 17.3148 14.8166 18.847 13.2492 17.7082L11.1756 16.2016C10.4746 15.6923 9.5254 15.6923 8.82443 16.2016L6.7508 17.7082C5.18337 18.847 3.07441 17.3148 3.67312 15.4721L4.46517 13.0344C4.73292 12.2104 4.43961 11.3077 3.73863 10.7984L1.665 9.29179C0.0975747 8.15299 0.903127 5.67376 2.84057 5.67376H5.40372C6.27017 5.67376 7.03808 5.11584 7.30583 4.2918L8.09789 1.8541Z" fill="black"></path>
+                        </svg>
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.09789 1.8541C8.69659 0.011477 11.3034 0.0114784 11.9021 1.8541L12.6942 4.2918C12.9619 5.11584 13.7298 5.67376 14.5963 5.67376H17.1594C19.0969 5.67376 19.9024 8.15299 18.335 9.29179L16.2614 10.7984C15.5604 11.3077 15.2671 12.2104 15.5348 13.0344L16.3269 15.4721C16.9256 17.3148 14.8166 18.847 13.2492 17.7082L11.1756 16.2016C10.4746 15.6923 9.5254 15.6923 8.82443 16.2016L6.7508 17.7082C5.18337 18.847 3.07441 17.3148 3.67312 15.4721L4.46517 13.0344C4.73292 12.2104 4.43961 11.3077 3.73863 10.7984L1.665 9.29179C0.0975747 8.15299 0.903127 5.67376 2.84057 5.67376H5.40372C6.27017 5.67376 7.03808 5.11584 7.30583 4.2918L8.09789 1.8541Z" fill="black"></path>
+                        </svg>
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.09789 1.8541C8.69659 0.011477 11.3034 0.0114784 11.9021 1.8541L12.6942 4.2918C12.9619 5.11584 13.7298 5.67376 14.5963 5.67376H17.1594C19.0969 5.67376 19.9024 8.15299 18.335 9.29179L16.2614 10.7984C15.5604 11.3077 15.2671 12.2104 15.5348 13.0344L16.3269 15.4721C16.9256 17.3148 14.8166 18.847 13.2492 17.7082L11.1756 16.2016C10.4746 15.6923 9.5254 15.6923 8.82443 16.2016L6.7508 17.7082C5.18337 18.847 3.07441 17.3148 3.67312 15.4721L4.46517 13.0344C4.73292 12.2104 4.43961 11.3077 3.73863 10.7984L1.665 9.29179C0.0975747 8.15299 0.903127 5.67376 2.84057 5.67376H5.40372C6.27017 5.67376 7.03808 5.11584 7.30583 4.2918L8.09789 1.8541Z" fill="black"></path>
+                        </svg>
+                        <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.09789 1.8541C8.69659 0.011477 11.3034 0.0114784 11.9021 1.8541L12.6942 4.2918C12.9619 5.11584 13.7298 5.67376 14.5963 5.67376H17.1594C19.0969 5.67376 19.9024 8.15299 18.335 9.29179L16.2614 10.7984C15.5604 11.3077 15.2671 12.2104 15.5348 13.0344L16.3269 15.4721C16.9256 17.3148 14.8166 18.847 13.2492 17.7082L11.1756 16.2016C10.4746 15.6923 9.5254 15.6923 8.82443 16.2016L6.7508 17.7082C5.18337 18.847 3.07441 17.3148 3.67312 15.4721L4.46517 13.0344C4.73292 12.2104 4.43961 11.3077 3.73863 10.7984L1.665 9.29179C0.0975747 8.15299 0.903127 5.67376 2.84057 5.67376H5.40372C6.27017 5.67376 7.03808 5.11584 7.30583 4.2918L8.09789 1.8541Z" fill="black"></path>
+                        </svg>
+                    </div>
                     </article>
                     <article class="pre-preparation-slot">
                         <div class="temps">
-                            <h5 class=""><?= $recette['titre'] ?></h5>
+                            <p><strong>Temps : </strong><?= $recette['temps'] ?></p>
+                            <p><?= $recette['preparation'] ?> de préparation</p>
+                            <p><?= $recette['cuisson'] ?> de cuisson</p>
                         </div>
-                                    <div class=""> Temps - <?= $recette['temps'] ?></div>
-                                    <div class="">
-                                    </div>
+                        <div class="categ-facili">
+                            <!-- MODIFICATION -->
+                            <p><strong>Auteur : </strong> <?= $recette['auteur'] ?></p>
+                            <p><strong>Catégorie : </strong> <?= $recette['categorie'] ?></p>
+                            <p><strong>Facilité : </strong><?= $recette['difficulte'] ?></p>
+                        </div>
                     </article>
+                </section>
+                    
+                <section class="slot-ingredients">
+                    <h2>Ingrédients</h2>
+                    <strong>La pâte</strong>
+                    <p>180 g farine de blé</p>
+                    <p>50 g poudre d’amande</p>
+                    <p>2 cuillères à soupe d'huile de tournesol</p>
+                    <p>20 g sucre vanillé</p>
+                    <strong>La crème</strong>
+                    <p>25 cl lait de riz</p>
+                    <p>2 gousses vanillé</p>
+                    <p>20 g sucre vanillé</p>
+                    <p>2 jaunes oeuf</p>
+                    <p>20 g sucre de canne complet</p>
+                    <p>180 g farine de blé</p>
+                    <p>50 g poudre d’amande</p>
+                    <p>2 càs huile de tournesol</p>
+                    <p>20 g sucre vanillé</p>
+                    <p>1 oeuf</p>
+                    <strong>La garniture</strong>
+                    <p>500 g de fraises</p>
+                </section>
+                <section class="slot-preparation">
+                    <h2>Préparation</h2>
+                    <div class="slot-etape">
+                        <h3>Etape 1 :</h3>
+                        <p>
+                            Mélanger la farine et la poudre d’amande dans un saladier avec le sucre. Faire un puit et
+                            ajouter l’huile et l'œuf. Ajouter un peu d’eau jusqu’à pouvoir former une boule de pâte.
+                            Laisser reposer au réfrigérateur pendant une heure (recouvrir d’un papier film). L’étaler sur du
+                            papier cuisson et le disposer dans le moule à tarte. Piquer la pâte à l’aide d’une fourchette et
+                            faire précuire 10 minutes.
+                        </p>
+                    </div>
+                    <div class="slot-etape">
+                        <h3>Etape 2 :</h3>
+                        <p>
+                            Porter le lait à ébullition avec les gousses de vanille fendues et grattées. Fouetter les jaunes
+                            avec les sucres puis ajouter la fécule (maïzena). Incorporer le lait bouillant en continuant à
+                            fouetter puis remettre sur le feu pendant une minute tout en continuant à remuer. La crème va
+                            épaissir. Sortir du feu et laisser refroidir.
+                        </p>
+                    </div>
+                    <div class="slot-etape">
+                        <h3>Etape 3 :</h3>
+                        <p>
+                            Verser la crème refroidie sur la pâte légèrement précuite. Disposer les fraises.
+                            Laisser reposer 1h au réfrigérateur avant de déguster.
+                        </p>
+                    </div>
+
+                    <!-- pas dans la base de donnée-->
+                    <div class="slot-etape">
+                        <h3>Vous avez aimé cette recette ? Dites-le nous en commentaire ? :) </h3>
+                    </div>
                 </section>
             </main>
         <?php

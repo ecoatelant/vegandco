@@ -9,11 +9,11 @@
 
 <body>
     <?php require 'includes/head.php'; ?>
-    <?php /*require 'includes/header.php'*/ ?>
+    <?php require 'includes/header.php' ?>
 
     <?= (isset($pageContent)) ? $pageContent : $error = '403'; ?>
 
-    <?php //require 'includes/inc_footer.php' ?> 
+    <?php require 'includes/footer.php' ?> 
 
     <?= $pageJavaScripts ?? '' ?>
 </body>

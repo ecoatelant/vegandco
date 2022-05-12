@@ -39,7 +39,12 @@ class ModeleRecette extends Connexion {
         $tmpsPreparation,
         $tmpsCuisson,
         $categorie){
+
+            echo 'test';
             try{
+            //     echo 'INSERT INTO recette 
+            //     (titre, temps, difficulte, cuisson, preparation, categorie, image)
+            // VALUES ('.$titre.', '..', '..', '..', '..', '..', '..')';
                 $prepaInser = Connexion::$bdd->prepare('
                 INSERT INTO recette 
                     (titre, temps, difficulte, cuisson, preparation, categorie, image)

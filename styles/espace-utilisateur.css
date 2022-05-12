@@ -1,0 +1,54 @@
+.deconnexion {
+    float: right;
+    margin-right: 100px;
+}
+
+.informations {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.informations>div {
+    margin: 45px;
+}
+
+.information_image {
+    width: 15%;
+}
+
+.information_image img {
+    width: 100%;
+    border-radius: 180px;
+    border: 3px solid #2E5E4E;
+}
+
+.suivi_perso {
+    display: flex;
+}
+
+.suivi_perso a{
+    margin:auto;
+    padding: 30px;
+    background-color: #9FB990;
+    color: white;
+    border-radius: 15px;
+}
+
+.plus_information {
+    margin: 45px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.plus_information div{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.plus_information div p{
+    margin: auto 0 auto 25px;
+}

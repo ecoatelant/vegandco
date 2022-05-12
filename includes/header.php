@@ -1,24 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <!-- Google Font Montserrat -->
-    <!-- Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Normalize.css -->
-    <link rel="stylesheet" href="/styles/normalize.9cdee482.css">
-    <!-- lien css -->
-    <link rel="stylesheet" href="/styles/style.1dc133ea.css">
-
-<script src="normalize.9cdee482.js"></script><script src="style.1dc133ea.js"></script></head>
-
 <body>
     <!-- Navbar fixe en position absolute en bottom sur mobile, deux navbar une en desktop en top -->
     <header>
@@ -97,17 +76,17 @@
             </svg>
             <ol>
                 <li>
-                    <a class="active-link" href="http://" target="_blank" rel="noopener noreferrer">
+                    <a class="active-link" href="/home" rel="noopener noreferrer">
                         Accueil
                     </a>
                 </li>
                 <li>
-                    <a href="recette" target="_blank" rel="noopener noreferrer">
+                    <a href="/recette" rel="noopener noreferrer">
                         Recettes
                     </a>
                 </li>
                 <li>
-                    <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <a href="/actualite" rel="noopener noreferrer">
                         Actualités
                     </a>
                 </li>
@@ -117,13 +96,19 @@
                     </a>
                 </li>
                 <li>
-                    <a class="inscri-link" href="http://" target="_blank" rel="noopener noreferrer">
+                    <a class="inscri-link" href="connexion/formInscription" rel="noopener noreferrer">
                         S'inscrire
                     </a>
                 </li>
 
                 <li>
-                    <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <a href="<?php 
+                        if (!isset($_SESSION['idUtilisateur'])) {
+                            echo '/connexion/formConnexion';
+                        }else {
+                            echo '/espace-utilisateur';
+                        }
+                    ?>" rel="noopener noreferrer">
                         <svg width="100%" height="100%" viewBox="0 0 433 525" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
                             <g id="Plan-de-travail1" serif:id="Plan de travail1" transform="matrix(1,0,0,1.02307,-0.0867457,0.494099)">
                                 <rect x="0.087" y="-0.483" width="432.049" height="512.878" style="fill:none;"></rect>
@@ -145,7 +130,7 @@
                 Accueil
                 </a>
                 &nbsp;>&nbsp;
-                <a href="">
+                <a href="/recette">
                     Recettes
                 </a>
                 &nbsp;>&nbsp;

@@ -1,7 +1,7 @@
 <?php
 
 // Démarre une session s'il n'y a pas de login et idUtil et idTypeUtilisateur
-if (!isset($_SESSION['pseudonym']) && !isset($_SESSION['idUtil']) && !isset($_SESSION['idTypeUtilisateur'])) {
+if (!isset($_SESSION['idUtilisateur'])) {
     session_start();
 }
 
@@ -22,7 +22,7 @@ if (isset($url[0])) {
 
 
 // Si c'est une page n'appartenant pas au module
-if (!in_array($page, array('connexion', 'recette'))) {
+if (!in_array($page, array('connexion', 'recette', 'espace-utilisateur', 'actualite'))) {
     // Si c'est une page static
     if (in_array($page, array('home', 'propos', 'mention'))) {
         ob_start();
