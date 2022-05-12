@@ -1,6 +1,13 @@
 body {
     text-align: center;
     margin: auto;
+    font-family: 'Bodoni Moda';
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 54.9px;
+    font-weight: 800;
 }
 
 .view_recipes {
