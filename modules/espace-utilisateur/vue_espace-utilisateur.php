@@ -3,13 +3,13 @@
     class VueEspaceUtilisateur {
 
         function __construct(){
-            ?><link rel="stylesheet" href="styles/espace-utilisateur.css"><?php
+            ?><link rel="stylesheet" href="__DIR__/../styles/espace-utilisateur.css"><?php
         }
 
         function affichageProfil($utilisateur){
             ?>
             <main>
-                <a class="deconnexion" href="/connexion/deconnexion">Se déconnecter</a>
+                <a class="deconnexion" href="<?=PATHBASE?>//connexion/deconnexion">Se déconnecter</a>
                 <div class="informations">
                     <div class="information_image"> 
                         <img src="data/img_utilisateur/<?php 
@@ -24,11 +24,11 @@
                 </div>
 
                 <div class="suivi_perso">
-                    <a href="/espace-utilisateur/suivi">Mon suivi personnel</a>
+                    <a href="<?=PATHBASE?>/espace-utilisateur/suivi">Mon suivi personnel</a>
                 </div>
                 
                 <div class="plus_information">
-                    <a href="/espace-utilisateur/modification-information">
+                    <a href="<?=PATHBASE?>/espace-utilisateur/modification-information">
                           <div>
                             <svg width="38" height="39" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M35.8323 13.4135C34.0898 10.357 31.7521 7.63686 29.124 5.31157C25.8569 2.21118 21.3412 0.32463 16.8254 1.11435C12.905 1.59696 8.86839 2.66454 5.9208 5.44319C2.17461 8.96768 -0.642292 15.0076 0.330556 20.2139C0.83876 24.7182 5.10768 26.9119 9.26043 26.6487C9.34755 26.6487 9.44919 26.6487 9.53631 26.6487C9.31851 27.3214 9.36207 28.1111 9.28947 28.7838C9.21687 30.8312 9.24591 32.8933 9.24591 34.9407C9.10071 36.7688 10.3785 37.7925 12.0483 38.0557C13.4422 38.2751 14.8797 38.202 16.2882 38.202C19.0615 38.1435 22.2995 38.2312 24.3759 36.0668C26.4377 33.8878 26.1909 30.6411 26.4523 27.8479C26.4668 27.6724 26.4668 27.4822 26.4377 27.2921C30.5469 27.4969 35.3095 26.3708 36.9939 22.1736C37.9522 19.3072 37.1681 16.0459 35.8323 13.4135Z" fill="#F3BD47"/>

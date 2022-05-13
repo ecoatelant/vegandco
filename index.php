@@ -7,6 +7,9 @@ if (!isset($_SESSION['idUtilisateur'])) {
 
 // setcookie('utilisateur','emilie', time()+60*60*24*30);
 
+//Pour la portabilité du projet
+require_once __DIR__.'/config/path.php';
+
  $url = '';
 // Récupere l'URL dans un tableau qui prendra les arguments de l'URL
 if (isset($_GET['url'])) {
@@ -20,9 +23,8 @@ if (isset($url[0])) {
     $page = 'home';
 }
 
-
 // Si c'est une page n'appartenant pas au module
-if (!in_array($page, array('connexion', 'recette', 'espace-utilisateur', 'actualite'))) {
+if (!in_array($page, array('connexion', 'recette', 'espace-utilisateur'))) {
     // Si c'est une page static
     if (in_array($page, array('home', 'propos', 'mention'))) {
         ob_start();
@@ -42,9 +44,9 @@ if (!in_array($page, array('connexion', 'recette', 'espace-utilisateur', 'actual
 } else { // Module
     $pageTitle = ucfirst($page) . ' - VEG AND CO\'';
     ob_start();
-    require "modules/$page/mod_$page.php";
+    require_once "modules/$page/mod_$page.php";
     $pageContent = ob_get_clean();
-    require 'layout.php';
+    require_once 'layout.php';
 }
 
 ?>

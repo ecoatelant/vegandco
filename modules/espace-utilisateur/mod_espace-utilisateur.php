@@ -19,6 +19,6 @@
         }
     }
 
-    $modConnexion = new ModEspaceUtilisateur((isset($url)) ? $url : null);
+    $modEspaceUtilisateur = new ModEspaceUtilisateur((isset($url)) ? $url : null);
     
 ?>

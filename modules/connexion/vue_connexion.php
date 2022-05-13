@@ -26,7 +26,7 @@
                         <div class="signup">
                             <h1>Se connecter</h1>
                             <div class="fsignup">
-                                <form action="/connexion/connexion" method="post">
+                                <form action="<?=PATHBASE?>/connexion/connexion" method="post">
                                     <div>
                                         <label for="email">Adresse-email</label>
                                         <input type="text" id="email" name="email" placeholder="Entrez votre adresse-email" required="">
@@ -37,7 +37,7 @@
                                     </div>
 
                                 <p class="oubli">Avez-vous oublié votre mot de passe ?
-                                    <a href="/connexion/mot-de-passe-oublie">Mot de passe oublié</a>
+                                    <a href="<?=PATHBASE?>/connexion/mot-de-passe-oublie">Mot de passe oublié</a>
                                     </p>
                                     <div>
                                         <button class="registerbtn cta" type="submit">Se connecter</button>
@@ -45,7 +45,7 @@
                                 </form>
                                 <div class="login-slot">
                                     <p>Pas de compte ?
-                                    <a href="/connexion/formInscription">Inscrivez-vous</a>
+                                    <a href="<?=PATHBASE?>/connexion/formInscription">Inscrivez-vous</a>
                                     </p>
                                 </div>
                                 <div class="login-Google">
@@ -60,6 +60,11 @@
                                             Se connecter avec Google
                                         </p>
                                     </a>
+                                </div>
+                                <div>
+                                    <?php 
+                                        if(isset($_SESSION['erreur'])) echo '<span>'.$_SESSION['erreur'].'</span>';
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +88,7 @@
                         <div class="signup">
                             <h1>Inscription</h1>
                             <div class="fsignup">
-                                <form action="/connexion/inscription" method="post">
+                                <form action="<?=PATHBASE?>/connexion/inscription" method="post">
                                     <div>
                                         <label for="nom">Nom</label>
                                         <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required="">
@@ -110,7 +115,7 @@
                                     </div>
                                     <p class="texte-cgu">
                                         En créant mon compte, j'ai lu et accepte les&nbsp;
-                                        <a href="#">Conditions Générales d'Utilisation</a>
+                                        <a href="<?=PATHBASE?>/CGU">Conditions Générales d'Utilisation</a>
                                     </p>
                                     <div>
                                         <button class="registerbtn cta" type="submit">S'inscrire</button>
@@ -118,7 +123,7 @@
                                 </form>
                                 <div class="login-slot">
                                     <p>Avez-vous déjà un compte ?&nbsp;
-                                    <a href="/connexion/formConnexion">Se connecter</a></p>
+                                    <a href="<?=PATHBASE?>/connexion/formConnexion">Se connecter</a></p>
                                 </div>
                                 <div class="login-Google">
                                     <a href="">
@@ -141,16 +146,6 @@
             <?php
         }
 
-        function IDMDPErrone(){
-            ?>
-            <main>
-                <section>
-                    <p>L'identifiant ou le mot de passe que vous avez saisi est erroné, veuillez recommencer s'il vous plait.</p>
-                </section>
-            </main>
-            <?php
-        }
-
         function mDPOublie(){
             ?>
             <main class="inscription mot-de-passe">
@@ -165,7 +160,7 @@
                         <div class="signup">
                             <h1>Mot de passe oublié</h1>
                             <div class="fsignup">
-                                <form action="/connexion/recuperation-mdp-oublie" method="post">
+                                <form action="<?=PATHBASE?>/connexion/recuperation-mdp-oublie" method="post">
                                     <div>
                                         <label for="nom">Adresse-email</label>
                                         <input type="email" id="nom" name="recup_email" placeholder="Entrez votre adresse-email" required="">

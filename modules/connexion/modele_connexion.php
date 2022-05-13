@@ -94,7 +94,7 @@
                     code_recuperation=:coderecuperation,
                     date_heure_recuperation= NOW()
                 WHERE email=:emailrecuperation');
-                $reponse = array(':emailrecuperation'=>$$email, ':coderecuperation'=>$code_recuperati$codeon);
+                $reponse = array(':emailrecuperation'=>$$email, ':coderecuperation'=>$code);
                 $majPreparee->execute($reponse);
             } catch (PDOException $e) {}
         }

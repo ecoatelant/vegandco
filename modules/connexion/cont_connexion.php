@@ -21,14 +21,15 @@
                     //TODO Quand on se connecte
                     //?
                     $_SESSION['idUtilisateur'] = $requete[0]['id'];
-                    header('Location: /espace-utilisateur');
+                    header('Location: '.PATHBASE.'/espace-utilisateur');
                     exit;
                 } else {
                     //TODO corriger car quand on fait une erreur l'url fait nimp
-                    $this->vueConnexion->IDMDPErrone();
+                    $_SESSION['erreur'] = "L'identifiant ou le mot de passe que vous avez saisi est erroné, veuillez recommencer s'il vous plait.";
+                    $this->vueConnexion->formConnexion();
                 }
             } else {//TODO corriger car quand on fait une erreur l'url fait nimp
-                $this->vueConnexion->IDMDPErrone();
+                $_SESSION['erreur'] = "L'identifiant ou le mot de passe que vous avez saisi est erroné, veuillez recommencer s'il vous plait.";
                 $this->vueConnexion->formConnexion();
             }
         }
@@ -36,7 +37,7 @@
         function deconnexion(){
             session_unset();
             session_destroy();
-            header('Location: /home');
+            header('Location: '.PATHBASE.'/home');
             exit;
         }
 
@@ -48,9 +49,9 @@
                     //TODO : Le pseudo ou l'email est déjà utilisé
                     echo '<main>pseudo ou email déjà utilisé</main>';
                 }else{
-                    /*$nouvelUtilisateur =*/ $this->modeleConnexion->nouvelUtilisateur($_POST['nom'], $_POST['prenom'], $_POST['pseudo'], $_POST['email'], $_POST['mdp']);
+                    /*$nouvelUtilisateur =*/ $this->modeleConnexion->nouvelUtilisateur($_POST['pseudo'], $_POST['prenom'], $_POST['nom'], $_POST['email'], $_POST['mdp']);
                     //TODO : Vérification de la bonne inscription de l'utilisateur donc attribution des cookies sinon affichage erreur d'inscription
-                    header('Location: /connexion/formConnexion');
+                    header('Location: '.PATHBASE.'/connexion/formConnexion');
                     exit;
                 }
             }else{
@@ -98,11 +99,11 @@
                         }
                     }else{
                         $_SESSION['erreur'] = "L'adresse e-mail renseignée n'existe pas dans notre base de donnée.";
-                        header('Location: /connexion/mot-de-passe-oublie');
+                        header('Location: '.PATHBASE.'/connexion/mot-de-passe-oublie');
                     }
                 }else{
                     $_SESSION['erreur'] = "Veuillez entre une adresse e-mail valide s'il vous plaît.";
-                    header('Location: /connexion/mot-de-passe-oublie');
+                    header('Location: '.PATHBASE.'/connexion/mot-de-passe-oublie');
                 } 
             }
         }

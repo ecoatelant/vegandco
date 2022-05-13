@@ -13,9 +13,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Normalize.css -->
+    <link rel="stylesheet" href=" __DIR__/../styles/normalize.css">
+    <!-- lien css -->
+    <link rel="stylesheet" href="__DIR__/../styles/style.css">
+    <!-- Normalize.css -->
+    <link rel="stylesheet" href=" __DIR__/../../styles/normalize.css">
+    <!-- lien css -->
+    <link rel="stylesheet" href="__DIR__/../../styles/style.css">
+    <!-- Normalize.css -->
     <link rel="stylesheet" href="/styles/normalize.css">
     <!-- lien css -->
     <link rel="stylesheet" href="/styles/style.css">
+    
 
     <script src="normalize.9cdee482.js"></script>
     <script src="style.1dc133ea.js"></script>
