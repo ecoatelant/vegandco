@@ -24,6 +24,10 @@
     <link rel="stylesheet" href="/styles/normalize.css">
     <!-- lien css -->
     <link rel="stylesheet" href="/styles/style.css">
+
+    <link rel="stylesheet" href=" __DIR__/../styles/recettes.css">
+    <link rel="stylesheet" href=" __DIR__/../../styles/recettes.css">
+    <link rel="stylesheet" href="/styles/recettes.css">
     
 
     <script src="normalize.9cdee482.js"></script>

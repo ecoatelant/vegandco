@@ -150,31 +150,56 @@ class VueRecette {
 
     public function nouvelleRecette() {
         ?>
-        <main>
-            <h1>Recettes</h1>
-            <h2>Ajouter une recette</h2>
-            <form action="recette/ajoutNouvelle" method="post">
-                <div class="image">
-                    <input type="file" name="img" accept="image/*">
-                </div>
-                <div class="premier_ligne">
-                    <input type="text" name="titre" placeholder="Titre de la recette">
-                </div>
-                <div class="deuxieme_ligne">
-                    <input type="time" name="tmpsPreparation" placeholder="Temps de préparation">
-                    <input type="time" name="tmpsCuisson" placeholder="Temps de cuisson">
-                    <select name="difficulte">
-                        <option value="facilite">Facilité</option>
-                        <option value="1">Facile</option>
-                        <option value="2">Intermédiaire</option>
-                        <option value="3">Difficile</option>
-                    </select>
-                </div>
-                <div class="enregistrer">
-                    <input type="submit" value="Enregistrer">
-                </div>
-                    
-                </form>
+        <main class="recette">
+            <section>
+                <article>
+                    <div class="nouvelle-recette">
+                        <h1>Recettes</h1>
+                        <h2>Ajouter une recette</h2>
+                        <div class="formulaire-creation-recette">
+                            <form action="<?=PATHBASE?>/recette/ajoutNouvelle" method="post">
+                                <div class="selection-image">
+                                    <label for="image-recette" class="label-image-recette">
+                                        <div>
+                                            <svg width="125" height="124" viewBox="0 0 125 124" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <rect width="125" height="124" fill="url(#pattern0)"/>
+                                                <defs>
+                                                <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                                <use xlink:href="#image0_929_6053" transform="translate(0 -0.00403226) scale(0.015625)"/>
+                                                </pattern>
+                                                <image id="image0_929_6053" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAEAYAAAD6+a2dAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAABgAAAAYADwa0LPAAAAB3RJTUUH5gQJEiExRqLZsgAADdtJREFUeNrtnGlUVEcWx//3dbPIgLsi0ohJkKARFQfcIpqoyBLA6LA16jgJUccFJgiCOxqTaFRUNCMuSWaIRhAwirKjQQOiIy4xLlEkUehGXKKGTYGmX82H8MgcczjYDfTDSf++cM7j1a1/1btdy60F0KNHjx49evTo0aNHzx8LElvA83L/QC7z9TE1rb339H1J5VtvkSMxLLCzQywG0DYLCwyjpWw+6a4837F1tIMxzMNNFlJezs4xwj+vXzd8VfqNwXepqX1cJ1/ee7+mRux6a4kO6wA3F6YXudsYGRnfp01d90dFwYISWbeFCxHO4mmVmZnY+pplE8nZB1VVOMyfxaHt2yudqi+qz65Z81qyn39Scn292PKepcM5QElJampgYLdu3HrJSGZ9/DiW4RxuOziIrUtrglCErRcu8HvUr1DopEnW1p6e+/c/fiy2LIEO4wDnCs8VzpltYGDu+MCx6nFODpTIhMH48WLrajOeoBxhJ07cq+xlb7Zr8mRHJ0en3XtUKrFlcWILEDD/9n6XKixd+n/34QVMYIHoN94wX//zx9UZS5aILUdAdAe4XZDW3X/ewIG0nRSYt2yZ2HraG7qHdOa7YoUiOt1kuoG9vdh6RHMAxuey8Uwqlfpzh8krLo7loR4bjYzErpB2L3c8O4y7hoYophI+PC5O6PrE0iOaA5Rl1SVYvh4RwQpQQ3udnMTSIRqNg9s+R392qYwIDxdLhs4d4M7srJ3yXXZ28GSFrHzlSrEK3mH4kh2kqqio0jGZm+Ver72m6+xbnAX8WJyT7evTpYshqfobpHh60iSALxw1ir1JxTA2N9c4xy24CN7BAZUYTmttbHRd4A5LZ1xgK4uLEQoHcBcvapqccpkNau/dYws5Y8w8fbp+iuS6+tW0tFdsXCYnJVdUNJvu2QeMMQYQKbtk5ctNFi0icyxhP65Ywb5hK2hR165i11OricZPmNvQQLGQ4+OqqqZyz0M8lpmZIQwvY5dUKrbM1kI2GImHjx/zBeSETR9+aDXctTh+yJYtREQAY03vNVUAS0z09ZVIlEFmppK18fFYA6I1vr5iF0RjGgMv9Aup8V5qKoXgHpnm5akvSfbwk65d67fR5VFC0J07zSVXRKcO8PW1tGR5BjOkaYMGcVZ8HNvu7Mz608sU7OUFPxaGKcOGiV1MjfHBNhgmJsrOVL3T8CQwkMjPLylJrW5yAGVMepF816ZNbBr9iBNhYWLrbQmS09voU18PE4yG8759fDW88a/Nm/sVuC2KP3r1anvlq8zLGuY/YOhQdpbvJ3kYFgYFXNnXcvkL03L0xN8RsGGDVSf3kvgpkZFU8lF60fTgQYM4Y5Lytd9/Dz/cQLVEIrbOZpmBLPblsWPceT6c7VywwLL6LdmB4KIiseSUlmfb+7sMHsy9qx7HRezYwXbDE184O4tdTc3S2AVKajgJbtjbkyI347NAk5gY2MCSTQkJEVvfs1AEPsVxlYoPp+s4tmRJc32Z2DAWxaIYxyl9Rk+7abV8OfxxjT1avRqj2VZM4UQPuP2OSErGwK1bSeGeOUqece0adrMofDlwoNi6mijDUKx98oTu0gJW6ucne9vtUMKEtDSxZT0vypj0ooB3fHywhRQUvG+fxoGuxrEMbmMqjTl5Ep/RP3nf31YT6SfWE73MzZk7elFfb2/UwxxHund/XvPkhyvgrl4lRVLGbrl9dTVGwQqD//QnsStO+MUzR4pl5729rcLc+iVYZWaKrUtbFNEZ3gGrpk4FsJXKk5Ja7GITEUtZe/fKFrml7H80a1ZLLZ0yJr1oerBMxiy58fydixcxkn0Bw549WxSWiFgMr67mOsqHb2IbTWXrQkJe9A8vYBXmfiThg0OHcBJerKTlRSAuiq6yE7Gxz9vFyf7hYfvVdqWSglkK80hJeW5hfpiHC6amHWfUegWBqD54UObu9jghaOfOtjZ/Nyvbfmbv3r3Vf2G91MUjRrBu6rF8voWF8H96LMnnxpaXSw7SA4nN2bO/7ui5f7+t8peluF1JyI6OLjPInCBfN3Eiu4UIfO/m9ux76nksnhX26oWNGKFRBhWwope6dwfwUJNkog9OaCVMUVJZyb6REnu77QahCtuM0sBXXF2VNpl/Dfjp5ElVBV/fUF1ezv/AL2Zzjx5lBTSa9u7eLfwVngvvKYMzzspd8vIUFemB/knu7q0uZ+MvuqFK8rN0y/z5kNAyDHj69Hfv9cE9TN6woaXQcFPc5rWM/XKTGTPYWjxFvLe3xroUiowMuVy80TTV0Mco/ugjmZ1bXnzhihXa2hH2DNaNql0lCY+LA4cxFDNtWpvpjMNTTDty5OldNpj7dubMAZ962H61vbJSW3u/OujmzTiOq2xEaGiz+f4NuXijogL5WIKDPC88ZydRix1GRrDEJaw0MdFWh2gtgBDIkZziP2+wjonR1s7NhelF04M7d65T1rlI0/Py2vrDC7BZ6ISvvb07JZGcDzx1Sti6prXBueqJquHR0cK8vNl8/403caJLF1aM/6BHt27C39Z+eAHxuoAL7Da80tIsgjxsk5IfPNA0ubBmYRzK/Z3tTEjQVYiWncOH2DZ4sCRWImeyAweE+b+mdqzCPG8mJZWV0adIxuljx9pbd3OI1wJw8GNDNBi1PoNyc5YiwF4uhyFbzHxa30drCluARChcXMqWjg650Xv6dK0N7UMiKg8f1rV+AdEcoL4K37IeJ09qbeAl2NLyqCix9DeRjRMkW71aaJE0TU7v8XV839xcseTr3gHOQIErNTX94YYDVFKiafIynzSfwMRhw+DEDiHF1lbn+p+BpbANsHv55fI5WdP8O2m+fb1v1VlLu4XFxc3NCtobnTsALcQu7L51S9tYPjvOfcyfGjdO17pbgn+IodxdzReBiNbQGuJ5BMEIo2/f1rVunTsAmwpDlGo/fUJfnKM9MpmudbfIDWYLC0tLrdNHw6JV9aIluu8CbtIv7FXt4w7sXSxmNwwNda67JV0qjCUL7fcDUCxbimTdHxTRvQMEs1FkbGqqbXJKx3RKv3tX57pb4i6VsPKyMm2Tszn4BQM6d9a1bN2PAfwRjZB+/bRNzxRYSBs03zTZ7lSwsXzN+fNap++NO3DWfdem+zFAYyTrp93HR8hNNN9VXDmk6rTKITe3KUQqNonogRkPHsiYMe4iP1/T5E31oOF6flshWhzA8GndPuav+ai56Zh1FfVBqvYh5DZjHH3OnDdtIu5NOknNh3SbrQf3+tU0RbxZjXih4FJ6nXI8PLRNbmxel9zJbtMm2owaOOh++oT12I/q69cbHI12Gplt26a1neO4yjtqXw+tRbyzgQ2kYrk+Pr+u02u+IaXn0SkFX2ysquIjJGv4HC8vYVm53YUb4h68Hz2ickko9nl7v0RvUhzV1mpq5s7so8M9z5mY4ARG0cG2X7x6XsRrARpv+mgIUB9UyYOCtDXTz2Ly5QM5V64we+bKFY4dS//Alyz01q0219t4cof/jI3hCpydZV9PHh7f5eZNbc3xDw28zQbMns3WohrWuh/9C4i+IQQqLCcWGSms52trxirM48lXqsuX6zZI31FvcHBAGA4hdN06IfSsscHGPXP0F/oB1R98YJRpvEy9ysHBermH7Vfbr13TVufPXilj3l1sZoZsdhUrIyJ0VMvNIvqGkCYht5HAPt+8WebsHpdg0nYHU4QuRmXPS9Vhrq7oxh4xu5EjsQND6Z3ftoTBiQbyc+7cYd3hzE08fVoao1pV2S0np+8erwupjk+etJUeZV7GrIAn0dGsPwIoaNEiHVfz7+gwDoDT9D5SeJ714I/yOe7u/SZ62B54PTtbbFlthfJ6uqfcacIElkbbMCw7u6McwBG/CxBoPEBBnSmS7PfvF24OEVtWaxHKwarIgB1PTOwoH16g4ziAQB/Mobk9ekjKuRCuR1ZW030CLxiCbqEcQrnE1vUsHc8BBEZgJH60slK7sjXIzssTmlCxZbWEoFM9h89i8vx8oRxi62qOjjMGaIlEvApTtRpAd2Rv3Ci53jCh6uDatW09SNMUYT6vnmngYpq8ahUK2Vx6GB7e0Zr65ui4LcCzCBXqh9MYs2SJ2kh63izg2jWlVfqqgPTZs6/6JB7w9Wn/ZWIhH2VQxojAwDlz1HZSlVnvH37AS+wNKomMfFE+vAAp/5aRJx9TUSF2QKLVNC7K4D2aioyEBHaOz+XlqanSBHVAjVF+vqYtRdP0MVidpjYbO5ZUrJY/6OnJNnLjaW1AwHOfweugCItppLickS2ff+kSukKNx0OGiC2szWnsOuhDNMDx9m22gqbjXEkJrWRHIP9tNZEdgB8b0rUrRdEv5GJtzaazFDhaW79ov+jnrxeKRsp335Hi28zIgCXr1zc1YXr+GCRiNArWr+ekEWon7q+xseQMQyyuqxNbl572hfojB2dqayXXpWcbnGJjOYszb/nsH1RSgleQhcLVq8UWqKd9YWeohl2Kiuq7x2VyUnJp6f/cEtZ4PVxllky+MCYGlewzPAwOFluwnjYiEe+xDTExskVuygSr0FBhW37TNFB4YNXFrSz+05AQBNAsXAoMRCIi8Elpqdj69WjIJ3BDYUkJO8Qy2cOAAKsw97IEq/ffb/aewOYQLnUuK3rq1XfEuHG8hIrgPno0F4k/I8zCgr1OR9kx8S47/qNDp5gXTVKp+E9wHtHl5dw2rprMCwosYwzLyubn5Wm7VU2PHj169OjRo0ePHj3/r/wXvDArTUpENgoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjItMDQtMDlUMTg6MzM6NDkrMDA6MDCy1Ah+AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIyLTA0LTA5VDE4OjMzOjQ5KzAwOjAww4mwwgAAAABJRU5ErkJggg=="/>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p>Ajouter une photo</p>
+                                        </div>
+                                    </label>
+                                    <input type="file" name="img-recette" id="image-recette" class="image-recette" accept="image/*">
+                                </div>
+                                <div class="premier_ligne">
+                                    <input type="text" name="titre" placeholder="Titre de la recette">
+                                </div>
+                                <div class="deuxieme_ligne">
+                                    <input type="time" name="tmpsPreparation" placeholder="Temps de préparation">
+                                    <input type="time" name="tmpsCuisson" placeholder="Temps de cuisson">
+                                    <select name="difficulte">
+                                        <option value="facilite">Facilité</option>
+                                        <option value="1">Facile</option>
+                                        <option value="2">Intermédiaire</option>
+                                        <option value="3">Difficile</option>
+                                    </select>
+                                </div>
+                                <div class="enregistrer">
+                                    <input type="submit" value="Enregistrer">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            
         </main>
         <?php
     }

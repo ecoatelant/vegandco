@@ -43,7 +43,7 @@
         function nouvelUtilisateur($pseudo, $prenom, $nom, $email, $mdp) {
             try{
                 $selectPrepareeInsert = Connexion::$bdd->prepare('
-                INSERT INTO utilisateur(creation, pseudo, prenom, nom, email, hash_mdp) 
+                    INSERT INTO utilisateur(creation, pseudo, prenom, nom, email, hash_mdp) 
                     VALUES (NOW(), :pseudo, :prenom, :nom, :email, :mdp)');
                 $reponse = array(':pseudo' => $pseudo, ':nom' => $nom, ':prenom' => $prenom, ':email' => $email, ':mdp' => password_hash($mdp, PASSWORD_DEFAULT));
                 $selectPrepareeInsert->execute($reponse);

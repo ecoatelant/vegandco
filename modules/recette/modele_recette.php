@@ -23,7 +23,9 @@ class ModeleRecette extends Connexion {
     public function getListeRecettes()
     {
         try {
-            $requete = Connexion::$bdd->prepare('select * from recette');
+            $requete = Connexion::$bdd->prepare('
+                SELECT * 
+                FROM recette');
             $requete->execute();
             $resultat = $requete->fetchAll();
             return $resultat;
@@ -36,21 +38,20 @@ class ModeleRecette extends Connexion {
         $tmps, 
         $img, 
         $difficulte,
-        $tmpsPreparation,
-        $tmpsCuisson,
+        $preparation,
+        $cuisson,
         $categorie){
-
-            echo 'test';
             try{
-            //     echo 'INSERT INTO recette 
-            //     (titre, temps, difficulte, cuisson, preparation, categorie, image)
-            // VALUES ('.$titre.', '..', '..', '..', '..', '..', '..')';
-                $prepaInser = Connexion::$bdd->prepare('
-                INSERT INTO recette 
+                $prepaInsert = Connexion::$bdd->prepare('
+                    INSERT INTO recette 
                     (titre, temps, difficulte, cuisson, preparation, categorie, image)
-                VALUES (:titre, :temps, :difficulte, :cuisson, :preparation, :categorie, :image)');
+                    VALUES (:titre, :temps, :difficulte, :cuisson, :preparation, :categorie, :image)');
                 $reponse = array(':titre' => $titre, ':temps' => $tmps, ':difficulte' => $difficulte, ':cuisson' => $cuisson, ':preparation' => $preparation, ':categorie' => $categorie, ':image' => $img);
-                $prepaInser->execute($reponse);
+                $prepaInsert->execute($reponse);
+                $dernier_id = Connexion::$bdd->insert_id;
+
+                
+                return $dernier_id;
             } catch (PDOException $e) {
         }
     }
