@@ -21,6 +21,10 @@
         function modificationInformation(){
             
         }
+
+        function dashboard_perso(){
+            $this->vueEspaceUtil->dashboard();
+        }
        
     }
 

@@ -54,3 +54,150 @@
 .plus_information div p{
     margin: auto 0 auto 25px;
 }
+
+.retour img{
+    width: 80%;
+}
+
+.retour {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    background: #F6F6F6;
+    ;
+}
+
+section.suivi {
+    margin: auto 120px;
+}
+
+.widgets {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+.widgets>div{
+    width: 260px;
+    color: white;
+    border-radius: 8px;
+}
+
+.widgets>div .widget-perso{
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.widgets>div .widget-perso p {
+    font-weight: 700;
+    font-size:40px;
+    line-height: 48px;
+    text-align: center;
+}
+
+.widgets>div .legend-widget {
+    height: 50px;
+    border-radius: 8px;
+}
+
+.widgets>div .legend-widget *{
+    width: fit-content;
+    margin: auto;
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+.widgets .co2 {
+    background: #BD5338CC;
+}
+
+.widgets .co2 .legend-widget {
+    background: #BD5338;
+}
+
+.widgets .eau {
+    background: #6A8DB7CC;
+    ;
+}
+
+.widgets .eau .legend-widget {
+    background: #6A8DB7;
+}
+
+.widgets .economie-financiere {
+    background: #F3BD47CC;
+}
+
+.widgets .economie-financiere .legend-widget {
+    background: #F3BD47;
+}
+
+.widgets .animaux {
+    background: #2E5E4ECC;
+}
+
+.widgets .animaux .legend-widget {
+    background: #2E5E4E;
+}
+
+article.conseils_objectifs {
+    margin: 40px 0;
+    display: flex;
+}
+
+article.conseils_objectifs>div {
+    background: #F6F6F6;
+    border-radius: 24px;
+}
+
+article.conseils_objectifs>.conseil {
+    margin-right: 25px;
+}
+
+article.conseils_objectifs>.objectif {
+    margin-left: 25px;
+}
+
+article.conseils_objectifs>div .titre {
+    display: flex;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    padding-left: 35px;
+    padding-right: 35px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+article.conseils_objectifs>div .contenu {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: white;
+    padding: 30px;
+    height: 190px;
+    border-radius: 24px;
+}
+
+article.conseils_objectifs>div .contenu p{
+    margin-bottom: 0;
+}
+
+article.conseils_objectifs>div.conseil .contenu {
+    background: #9FB990;
+}
+
+article.conseils_objectifs>div.objectif .contenu {
+    background: #BD5338;
+}
+
+section.suivi h2.dashboard-perso {
+    text-align: center;
+    color: #2E5E4E;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+}

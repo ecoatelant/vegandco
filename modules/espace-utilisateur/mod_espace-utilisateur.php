@@ -14,6 +14,9 @@
                     case 'modification-information':
                         $controleurEspaceUtil->modificationInformation();
                         break;
+                    case 'suivi':
+                        $controleurEspaceUtil->dashboard_perso();
+                        break;
                 }
             } else $controleurEspaceUtil->profil();
         }
