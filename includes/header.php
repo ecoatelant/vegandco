@@ -130,24 +130,46 @@
                 </li>
             </ol>
         </nav>
-        <div class="fil-dariane hide-desktop">
-            <p>
-                <a href="">
-                Accueil
-                </a>
-                &nbsp;>&nbsp;
-                <a href="/recette">
-                    Recettes
-                </a>
-                &nbsp;>&nbsp;
-                <a href="">
-                    Desserts
-                </a>
-                &nbsp;>&nbsp;
-                <a href="">
-                    Tartes aux fraises
-                </a>
-        </p>
-        </div>
+        <?php
+            if($url[0]=='recette'){
+                ?>
+                <div class="fil-dariane hide-desktop">
+                    <p>
+                        <a href="<?=PATHBASE?>/home">
+                            Accueil
+                        </a>
+                        &nbsp;>&nbsp;
+                        <a href="<?=PATHBASE?>/recette">
+                            Recettes
+                        </a>
+                        <?php 
+                            if(isset($url[1])){
+                                if($url[1]=='affichage'){
+                                    require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'recette'.DIRECTORY_SEPARATOR.'cont_recette.php';
+                                    $controleurRecette = new ContRecette();
+                                    $categories = $controleurRecette->getCategoriesParID($url[2]);
+                                    if(isset($categories)){
+                                        foreach($categories as &$categorie){
+                                            ?>
+                                                &nbsp;>&nbsp;
+                                                <a href="#<?php //TODO lien vers les recettes filtrés?>">
+                                                    <?=$categorie?>
+                                                </a>
+                                            <?php
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            
+                        ?>
+                    </p>
+                </div>
+
+            <?php
+            }
+        ?>
+        
     </header>
-                        </body></html>
+</body>
+</html>

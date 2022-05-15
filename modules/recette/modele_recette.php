@@ -68,4 +68,39 @@ class ModeleRecette extends Connexion {
         } catch (PDOException $e) {}
     }
 
+    function getCategoriesParID($idRecette){
+        try {
+            $pasDeCategorieParente=false;
+            $cat = array();
+            $requete = Connexion::$bdd->prepare('
+                SELECT 
+                    T1.*
+                FROM recette T0
+                INNER JOIN categorie_recette T1 ON T0.categorie = T1.id
+                WHERE T0.id=:idRecette');
+            $reponse = array(':idRecette' => $idRecette);
+            $requete->execute($reponse);
+            $resultat = $requete->fetchAll();
+            array_push($cat, $resultat[0]['nom']);
+            if($resultat[0]['parent']==NULL){
+                $pasDeCategorieParente=true;
+            }
+            while(!$pasDeCategorieParente){
+                $requete = Connexion::$bdd->prepare('
+                    SELECT 
+                        *
+                    FROM categorie_recette 
+                    WHERE id=:idCategorie');   
+                $reponse = array(':idCategorie' => $resultat[0]['parent']);
+                $requete->execute($reponse);
+                $resultat = $requete->fetchAll();
+                array_push($cat, $resultat[0]['nom']);
+                if($resultat[0]['parent']==NULL){
+                    $pasDeCategorieParente=true;
+                }
+            }
+            return $cat;
+        } catch (PDOException $e) {}
+    }
+
 }

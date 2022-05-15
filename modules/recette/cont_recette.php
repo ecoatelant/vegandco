@@ -49,4 +49,8 @@ class ContRecette {
         $this->vueRecette->afficherRecette($idNouvelleRecette, $this->modeleRecette->getGrandeCategoriesRecettes());
     }
 
+    function getCategoriesParID($id){
+        return $this->modeleRecette->getCategoriesParID($id);
+    }
+
 }
