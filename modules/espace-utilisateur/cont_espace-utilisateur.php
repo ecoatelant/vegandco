@@ -23,7 +23,15 @@
         }
 
         function dashboard_perso(){
-            $this->vueEspaceUtil->dashboard();
+            $stat_co2 = $this->modeleEspaceUtil->getStatCO2($_SESSION['idUtilisateur']);
+            echo $stat_co2;
+            $stats = array(
+                "co2" => $stat_co2,
+                "eau" => NULL,
+                "economie" => NULL,
+                "animaux" => NULL
+            );
+            $this->vueEspaceUtil->dashboard($stats);
         }
        
     }

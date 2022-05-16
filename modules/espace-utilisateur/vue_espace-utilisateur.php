@@ -58,10 +58,10 @@
             <?php
         }
 
-        function dashboard(){
+        function dashboard($statistiques){
             ?>
             <main class="espace-utilisateur">
-                <a href="#">
+                <a href="<?=PATHBASE?>/espace-utilisateur">
                     <div class="retour">
                         <img src="fleche_gauche.png" />
                     </div>
@@ -76,7 +76,7 @@
                     <article class="widgets">
                         <div class="co2">
                             <div class="widget-perso">
-                                <p>00</p>
+                                <p><?=$statistiques['co2']?></p>
                                 <svg width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <rect width="75" height="75" fill="url(#pattern0)"/>
                                     <defs>
