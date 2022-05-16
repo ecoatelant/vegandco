@@ -26,7 +26,7 @@ if (isset($url[0])) {
 // Si c'est une page n'appartenant pas au module
 if (!in_array($page, array('connexion', 'recette', 'espace-utilisateur', 'actualite'))) {
     // Si c'est une page static
-    if (in_array($page, array('home', 'propos', 'mention'))) {
+    if (in_array($page, array('home', 'propos', 'mention','oops'))) {
         ob_start();
         $pageTitle = ucfirst($page) . ' - VEG AND CO\'';
         require "includes/$page.php";

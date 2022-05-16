@@ -4,10 +4,10 @@
 
     class ModeleConnexion extends Connexion {
 
-        function getUtilisateurByEmail ($email) {
+        function getUtilisateurParEmail ($email) {
             try{
                 $selectPreparee =Connexion::$bdd->prepare('
-                    SELECT id, pseudo, hash_mdp
+                    SELECT *
                     FROM utilisateur 
                     WHERE email=:email');
                 $reponse = array(':email' => $email);
@@ -70,7 +70,9 @@
                         VALUES (:emailrecuperation,:coderecuperation, NOW())');
                 $reponse = array(':emailrecuperation'=>$email_recuperation, ':coderecuperation'=>$code_recuperation);
                 $insertPreparee->execute($reponse);
-            } catch (PDOException $e) {}
+            } catch (PDOException $e) {
+                echo $e;
+            }
         }
 
         function verificationCodeRecuperationInexistant($email){
@@ -94,7 +96,7 @@
                     code_recuperation=:coderecuperation,
                     date_heure_recuperation= NOW()
                 WHERE email=:emailrecuperation');
-                $reponse = array(':emailrecuperation'=>$$email, ':coderecuperation'=>$code);
+                $reponse = array(':emailrecuperation'=>$email, ':coderecuperation'=>$code);
                 $majPreparee->execute($reponse);
             } catch (PDOException $e) {}
         }

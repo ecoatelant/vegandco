@@ -118,7 +118,7 @@
                                         <a href="<?=PATHBASE?>/CGU">Conditions Générales d'Utilisation</a>
                                     </p>
                                     <div>
-                                        <button class="registerbtn cta" type="submit">S'inscrire</button>
+                                        <button class="registerbtn cta" type="submit" name="formulaireInscription">S'inscrire</button>
                                     </div>
                                 </form>
                                 <div class="login-slot">
