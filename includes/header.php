@@ -131,42 +131,44 @@
             </ol>
         </nav>
         <?php
-            if($url[0]=='recette'){
-                ?>
-                <div class="fil-dariane hide-desktop">
-                    <p>
-                        <a href="<?=PATHBASE?>/home">
-                            Accueil
-                        </a>
-                        &nbsp;>&nbsp;
-                        <a href="<?=PATHBASE?>/recette">
-                            Recettes
-                        </a>
-                        <?php 
-                            if(isset($url[1])){
-                                if($url[1]=='affichage'){
-                                    require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'recette'.DIRECTORY_SEPARATOR.'cont_recette.php';
-                                    $controleurRecette = new ContRecette();
-                                    $categories = $controleurRecette->getCategoriesParID($url[2]);
-                                    if(isset($categories)){
-                                        foreach($categories as &$categorie){
-                                            ?>
-                                                &nbsp;>&nbsp;
-                                                <a href="#<?php //TODO lien vers les recettes filtrés?>">
-                                                    <?=$categorie?>
-                                                </a>
-                                            <?php
+            if(isset($url['0'])){
+                if($url[0]=='recette'){
+                    ?>
+                    <div class="fil-dariane hide-desktop">
+                        <p>
+                            <a href="<?=PATHBASE?>/home">
+                                Accueil
+                            </a>
+                            &nbsp;>&nbsp;
+                            <a href="<?=PATHBASE?>/recette">
+                                Recettes
+                            </a>
+                            <?php 
+                                if(isset($url[1])){
+                                    if($url[1]=='affichage'){
+                                        require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR.'recette'.DIRECTORY_SEPARATOR.'cont_recette.php';
+                                        $controleurRecette = new ContRecette();
+                                        $categories = $controleurRecette->getCategoriesParID($url[2]);
+                                        if(isset($categories)){
+                                            foreach($categories as &$categorie){
+                                                ?>
+                                                    &nbsp;>&nbsp;
+                                                    <a href="#<?php //TODO lien vers les recettes filtrés?>">
+                                                        <?=$categorie?>
+                                                    </a>
+                                                <?php
+                                            }
                                         }
                                     }
                                 }
-                            }
-                            
-                            
-                        ?>
-                    </p>
-                </div>
+                                
+                                
+                            ?>
+                        </p>
+                    </div>
 
-            <?php
+                <?php
+                }
             }
         ?>
         

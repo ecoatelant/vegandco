@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 12 mai 2022 à 22:45
+-- Généré le : lun. 16 mai 2022 à 17:44
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `vegandco`
 --
-CREATE DATABASE IF NOT EXISTS `vegandco` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `vegandco`;
+-- CREATE DATABASE IF NOT EXISTS `vegandco` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+-- USE `vegandco`;
 
 -- --------------------------------------------------------
 
@@ -32,13 +32,20 @@ USE `vegandco`;
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE IF NOT EXISTS `article` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
-  `titre` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `contenu` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `titre` varchar(256) NOT NULL,
+  `image` text,
+  `contenu` text NOT NULL,
   `date` datetime NOT NULL,
   `auteur` int(255) DEFAULT NULL,
-  `source` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `article`
+--
+
+INSERT INTO `article` (`id`, `titre`, `image`, `contenu`, `date`, `auteur`) VALUES
+(1, 'Venez rencontrer la team Veg & Co’ !', 'a_rencontremegots.jpg', '<span>\n                                    Avec ce projet, nous souhaitons créer une communauté qui partage nos valeurs et qui souhaite\n                                    se mobiliser pour la planète. De nombreux gestes sont possibles au quotidien. Pour\n                                    l’occasion, nous avons décidé de nous réunir pour une opération “ramassage de mégots”. Ces\n                                    derniers sont encore beaucoup trop présents sur nos trottoirs, espaces de vie et c’est la\n                                    nature (et nous aussi) qui en subissons les conséquences.\n                                </span>\n                                <span>\n                                    En effet, saviez-vous que chaque année, plus de 23 milliards de mégots sont jetés au sol !\n                                    En se retrouvant dans la nature, ils polluent jusqu’à 500 litres d’eau chacun ! *\n                                </span>\n                                <span>Donc on s’est dit, motivons notre communauté pour cette action. C’est l’occasion de vous\n                                    rencontrer, de pouvoir échanger avec vous, de vous connaître et cela dans la bonne humeur !\n                                </span>\n                                <span>\n                                    On vous donne rendez-vous le mercredi 4 mai à 19h? La session durera 1 heure.\n                                    Lieu de rendez-vous : canal Saint-Martin (quai de Valmy, en face du Picard)\n                                </span>\n                                <span>\n                                    À la fin de cette session, un moment détente est prévu. On s’occupe de ramener de bonnes\n                                    choses à grignoter 🤗\n                                    Côté pratique : On fournit les gants, les contenants\n                                    Parlez-en autour de vous !\n                                </span>\n                                <i>Source : ministère de l’écologie</i>', '2022-05-27 00:00:00', 17);
 
 -- --------------------------------------------------------
 
@@ -52,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `categorie_recette` (
   `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `parent` int(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `categorie_recette`
@@ -79,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `recette` int(255) NOT NULL,
   `contenu` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -93,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `etapes_recette` (
   `recette` int(255) NOT NULL,
   `contenu` int(11) NOT NULL,
   PRIMARY KEY (`num_etape`,`recette`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -106,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `forum_discussion` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `sujet` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -123,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `forum_messages` (
   `date_ecriture` datetime NOT NULL,
   `date_modification` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -137,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `ingredient` (
   `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -151,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `ingredient_recette` (
   `recette` int(255) NOT NULL,
   `quantite` smallint(6) NOT NULL,
   `type_quantite` int(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -177,14 +184,14 @@ CREATE TABLE IF NOT EXISTS `recette` (
   `moderation` datetime DEFAULT NULL,
   `note` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `recette`
 --
 
 INSERT INTO `recette` (`id`, `titre`, `temps`, `difficulte`, `prix`, `cuisson`, `repos`, `preparation`, `categorie`, `auteur`, `image`, `personne`, `updated`, `moderation`, `note`) VALUES
-(1, 'Tarte à la fraise', '30:00:00', 1, NULL, '30:00:00', '30:00:00', '30:00:00', 3, 1, 'taf.jpg', 6, NULL, NULL, 'false'),
+(1, 'Tarte à la fraise', '30:00:00', 1, NULL, '30:00:00', '30:00:00', '30:00:00', 4, 1, 'taf.jpg', 6, NULL, NULL, 'false'),
 (2, 'Tarte au citron meringuée', '30:00:00', 1, NULL, '30:00:00', '30:00:00', '30:00:00', 3, 1, 'tarte-au-citron.jpg', 6, NULL, NULL, 'false'),
 (3, 'Hoummous', '03:30:00', 3, NULL, '00:30:00', NULL, '00:30:00', 1, NULL, 'houmous.png', 1, NULL, NULL, '');
 
@@ -199,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `recettes_favorites` (
   `utilisateur` int(255) NOT NULL,
   `recette` int(255) NOT NULL,
   PRIMARY KEY (`utilisateur`,`recette`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -214,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `recuperation` (
   `code_recuperation` int(11) NOT NULL,
   `date_heure_recuperation` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -229,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `repas` (
   `viande` tinyint(1) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`date`,`type`,`utilisateur`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -242,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `session` (
   `id` int(255) NOT NULL,
   `token` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -269,7 +276,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `nom` int(11) NOT NULL,
   `type_post` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -282,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `tag_article` (
   `tag` int(255) NOT NULL,
   `article` int(255) NOT NULL,
   PRIMARY KEY (`tag`,`article`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -295,7 +302,7 @@ CREATE TABLE IF NOT EXISTS `tag_recette` (
   `tag` int(255) NOT NULL,
   `recette` int(255) NOT NULL,
   PRIMARY KEY (`tag`,`recette`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -308,7 +315,7 @@ CREATE TABLE IF NOT EXISTS `type_post` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `nom` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -322,7 +329,7 @@ CREATE TABLE IF NOT EXISTS `type_quantite` (
   `nom` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nommage` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -342,22 +349,23 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `hash_mdp` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` text COLLATE utf8mb4_unicode_ci,
   `newsletter` tinyint(1) DEFAULT NULL,
-  `vegetarisme` date DEFAULT NULL,
+  `dateVegetarisme` date DEFAULT NULL,
   `signature` text COLLATE utf8mb4_unicode_ci,
   `type_utilisateur` int(255) DEFAULT NULL,
   `abonnement` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `creation`, `pseudo`, `prenom`, `nom`, `email`, `confirmation`, `hash_mdp`, `image`, `newsletter`, `vegetarisme`, `signature`, `type_utilisateur`, `abonnement`) VALUES
+INSERT INTO `utilisateur` (`id`, `creation`, `pseudo`, `prenom`, `nom`, `email`, `confirmation`, `hash_mdp`, `image`, `newsletter`, `dateVegetarisme`, `signature`, `type_utilisateur`, `abonnement`) VALUES
 (1, '2022-04-28 17:55:39', 'ecoatelant', 'Emilie', 'COATELANT', 'emiliecoatelant@outlook.fr', 1, '$2y$10$57onhCmOu5Kj/ZNnDb0j6ecDuo56snAVOY2MUCrxR/y99QZXWzdOm', NULL, 0, NULL, '', 1, 0),
 (2, '2022-05-12 14:23:50', 'samybm', 'Samy', 'BEN MIMOUN', 'samybm@gmail.com', NULL, 'love', NULL, NULL, NULL, NULL, NULL, NULL),
-(15, '2022-05-12 14:33:33', 'aneiina', 'Chloé', 'BERNASCONI', 'chloeb@gmail.com', NULL, '$2y$10$KbY/jKaNqCDlVUu0/1dzH.3VM.UlpxjWpnGl2mBYSULkFX8QXYu/O', 'aneina.png', NULL, NULL, NULL, NULL, NULL),
-(16, '2022-05-12 21:22:12', 'LEVEL', 'Sophie', 'slevel', 'slevel@efe.fr', NULL, '$2y$10$xBqiOT6N1PnKniXHNvUGw.abKvvX8nyorhGYBB/Sj4LXOvZXJBw3q', NULL, NULL, NULL, NULL, NULL, NULL);
+(15, '2022-05-12 14:33:33', 'aneiina', 'Chloé', 'BERNASCONI', 'chloeb@gmail.com', NULL, '$2y$10$KbY/jKaNqCDlVUu0/1dzH.3VM.UlpxjWpnGl2mBYSULkFX8QXYu/O', 'aneina.png', NULL, '2017-05-08', NULL, NULL, NULL),
+(16, '2022-05-12 21:22:12', 'LEVEL', 'Sophie', 'slevel', 'slevel@efe.fr', NULL, '$2y$10$xBqiOT6N1PnKniXHNvUGw.abKvvX8nyorhGYBB/Sj4LXOvZXJBw3q', NULL, NULL, NULL, NULL, NULL, NULL),
+(17, '2022-05-16 19:09:58', 'sandrine.bidan', 'Sandrine', 'BIDAN', 'sandrine0bidan@gmail.com', NULL, '$2y$10$2efSpp.KxRPeHERCcn25N.FMsSdYmZykX5VWAA7zXs.obKHRodPl.', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -371,7 +379,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur_widget` (
   `widget` int(255) NOT NULL,
   `actif` int(11) NOT NULL,
   PRIMARY KEY (`utilisateur`,`widget`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -383,7 +391,7 @@ DROP TABLE IF EXISTS `widget`;
 CREATE TABLE IF NOT EXISTS `widget` (
   `id` int(255) NOT NULL,
   `nom` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
