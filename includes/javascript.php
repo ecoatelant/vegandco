@@ -1,3 +1,3 @@
-<script src="js/splide.min.js"></script>
-<script src="js/slider.js"></script>
-<script src="js/like_dislike.js"></script>
+<script src="script/splide.min.js"></script>
+<script src="script/js/slider.js"></script>
+<script src="script/like_dislike.js"></script>
