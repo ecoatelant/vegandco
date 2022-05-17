@@ -19,7 +19,7 @@
     <!-- Normalize.css -->
     <link rel="stylesheet" href="<?=PATHBASE?>/styles/normalize.css">
     <!-- lien css -->
-    <link rel="stylesheet" href="<?=PATHBASE?>/styles/style.css">
+    <link rel="stylesheet" href="<?=PATHBASE?>/styles/style.min.css">
 
     <link rel="stylesheet" href="<?=PATHBASE?>/styles/recettes.css">
     <link rel="stylesheet" href="<?=PATHBASE?>/styles/espace-utilisateur.css">
