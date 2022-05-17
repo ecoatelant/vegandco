@@ -107,6 +107,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="<?=PATHBASE?>/forul" rel="noopener noreferrer">
+                        Forum
+                    </a>
+                </li>
+                <li>
                     <a class="inscri-link" href="<?=PATHBASE?>/connexion/formInscription" rel="noopener noreferrer">
                         S'inscrire
                     </a>
