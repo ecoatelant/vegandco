@@ -28,7 +28,7 @@ if (!in_array($page, array('connexion', 'recette', 'espace-utilisateur', 'actual
     // Si c'est une page static
     if (in_array($page, array('home', 'propos', 'mention','oops'))) {
         ob_start();
-        $pageTitle = ucfirst($page) . ' - VEG AND CO\'';
+        $pageTitle = ucfirst($page) . ' - Veg & Co\'';
         require "includes/$page.php";
         $pageContent = ob_get_clean();
         require 'layout.php';
@@ -42,7 +42,7 @@ if (!in_array($page, array('connexion', 'recette', 'espace-utilisateur', 'actual
         die;
     }
 } else { // Module
-    $pageTitle = ucfirst($page) . ' - VEG AND CO\'';
+    $pageTitle = ucfirst($page) . ' - Veg & Co\'';
     ob_start();
     require_once "modules/$page/mod_$page.php";
     $pageContent = ob_get_clean();
