@@ -107,7 +107,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?=PATHBASE?>/forul" rel="noopener noreferrer">
+                    <a href="<?=PATHBASE?>/forum" rel="noopener noreferrer">
                         Forum
                     </a>
                 </li>
