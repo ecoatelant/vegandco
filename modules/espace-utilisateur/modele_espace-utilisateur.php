@@ -34,16 +34,9 @@
                     $dateCourante = new DateTime();
                     $nbJoursVegetariens = $dateCourante->diff($dateVegetarisme);
                     $jours = $nbJoursVegetariens->format("%m");
-                    var_dump($nbJoursVegetariens);
-                    var_dump($dateCourante->format('Y'));
-
                     if($nbJoursVegetariens)
-
-                    echo 'test de fou malade : '.$nbJoursVegetariens->y*365;
                     return ($nbJoursVegetariens->y*365+$nbJoursVegetariens->m*30.5+$nbJoursVegetariens->d)*$stat_co2;
-                }else{
-
-                }
+                }else{}
                 return NULL;
             } catch (PDOException $e) {}
         }

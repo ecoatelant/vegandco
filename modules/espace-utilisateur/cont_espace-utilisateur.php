@@ -24,7 +24,6 @@
 
         function dashboard_perso(){
             $stat_co2 = $this->modeleEspaceUtil->getStatCO2($_SESSION['idUtilisateur']);
-            echo $stat_co2;
             $stats = array(
                 "co2" => $stat_co2,
                 "eau" => NULL,

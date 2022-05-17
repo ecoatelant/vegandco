@@ -40,12 +40,46 @@
             
         }
 
-        function nouvelUtilisateur($pseudo, $prenom, $nom, $email, $mdp) {
+        function nouvelUtilisateurEtape1($pseudo, $prenom, $nom, $email, $mdp) {
             try{
                 $selectPrepareeInsert = Connexion::$bdd->prepare('
-                    INSERT INTO utilisateur(creation, pseudo, prenom, nom, email, hash_mdp) 
-                    VALUES (NOW(), :pseudo, :prenom, :nom, :email, :mdp)');
+                    INSERT INTO utilisateur(creation, pseudo, prenom, nom, email, hash_mdp, etape_inscription) 
+                    VALUES (NOW(), :pseudo, :prenom, :nom, :email, :mdp, 2)');
                 $reponse = array(':pseudo' => $pseudo, ':nom' => $nom, ':prenom' => $prenom, ':email' => $email, ':mdp' => password_hash($mdp, PASSWORD_DEFAULT));
+                $selectPrepareeInsert->execute($reponse);
+            } catch (PDOException $e) {}
+        }
+
+        function nouvelUtilisateurEtape2PasVeg($idUtilisateur){
+            try{
+                $selectPrepareeInsert = Connexion::$bdd->prepare('
+                    UPDATE utilisateur
+                    SET etape_inscription=3 
+                    WHERE id=:idUtilisateur');
+                $reponse = array(':idUtilisateur' => $idUtilisateur);
+                $selectPrepareeInsert->execute($reponse);
+            } catch (PDOException $e) {}
+        }
+
+        function nouvelUtilisateurEtape2Veg($idUtilisateur, $dateVeg){
+            try{
+                var_dump($dateVeg);
+                $selectPrepareeInsert = Connexion::$bdd->prepare('
+                    UPDATE utilisateur
+                    SET dateVegetarisme=:dateVeg, etape_inscription=3 
+                    WHERE id=:idUtilisateur');
+                $reponse = array(':idUtilisateur' => $idUtilisateur, ':dateVeg'=>$dateVeg);
+                $selectPrepareeInsert->execute($reponse);
+            } catch (PDOException $e) {}
+        }
+
+        function nouvelUtilisateurEtape3($idUtilisateur, $newsletter){
+            try{
+                $selectPrepareeInsert = Connexion::$bdd->prepare('
+                    UPDATE utilisateur
+                    SET newsletter=:newsletter, etape_inscription=4 
+                    WHERE id=:idUtilisateur');
+                $reponse = array(':idUtilisateur' => $idUtilisateur, ':newsletter'=>$newsletter);
                 $selectPrepareeInsert->execute($reponse);
             } catch (PDOException $e) {}
         }

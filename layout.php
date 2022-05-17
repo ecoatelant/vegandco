@@ -36,10 +36,7 @@
 
     <?php require 'includes/footer.php' ?> 
 
-    <!-- j'ai mis ca en attendant -Aline -->
-    <?php require 'includes/javascript.php' ?> 
-
-    <?= $pageJavaScripts ?? '' ?> 
+    <?php require 'includes/javascript.php' ?>
 </body>
 
 </html>

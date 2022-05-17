@@ -112,7 +112,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="inscri-link" href="<?=PATHBASE?>/connexion/formInscription" rel="noopener noreferrer">
+                    <a class="inscri-link" href="<?=PATHBASE?>/connexion/inscription/1" rel="noopener noreferrer">
                         S'inscrire
                     </a>
                 </li>
