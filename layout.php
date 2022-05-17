@@ -20,13 +20,12 @@
     <link rel="stylesheet" href="<?=PATHBASE?>/styles/normalize.css">
     <!-- lien css -->
     <link rel="stylesheet" href="<?=PATHBASE?>/styles/style.min.css">
+    <!-- lien Splide -->
+    <link rel="stylesheet" href="<?=PATHBASE?>/styles/splide.min.css">
 
     <link rel="stylesheet" href="<?=PATHBASE?>/styles/recettes.css">
     <link rel="stylesheet" href="<?=PATHBASE?>/styles/espace-utilisateur.css">
     
-
-    <script src="normalize.9cdee482.js"></script>
-    <script src="style.1dc133ea.js"></script>
 </head>
 
 <body>
@@ -37,7 +36,10 @@
 
     <?php require 'includes/footer.php' ?> 
 
-    <?= $pageJavaScripts ?? '' ?>
+    <!-- j'ai mis ca en attendant -Aline -->
+    <?php require 'includes/javascript.php' ?> 
+
+    <?= $pageJavaScripts ?? '' ?> 
 </body>
 
 </html>
