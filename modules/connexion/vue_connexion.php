@@ -21,8 +21,8 @@ class VueConnexion
                             </svg>
                         </div>
                         <picture>
-                            <source srcset="../media/connexion_mob.a36f04da.jpg" media="(max-width: 1023px)">
-                            <img src="../media/connexion_desk.d0cb8195.jpg" alt="visuel téléphone avec des légumes autour">
+                            <source srcset="../media/connexion_mob.jpg" media="(max-width: 1023px)">
+                            <img src="../media/connexion_desk.jpg" alt="visuel téléphone avec des légumes autour">
                         </picture>
                     </div>
                     <div class="signup">
