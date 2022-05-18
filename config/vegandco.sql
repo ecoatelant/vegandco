@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 17 mai 2022 à 23:28
+-- Généré le : mer. 18 mai 2022 à 23:16
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -24,36 +24,36 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateur`
+-- Structure de la table `recette`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateur` (
+CREATE TABLE IF NOT EXISTS `recette` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
-  `creation` datetime NOT NULL,
-  `pseudo` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `prenom` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nom` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(320) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `confirmation` tinyint(1) DEFAULT NULL,
-  `hash_mdp` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `titre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `temps` time DEFAULT NULL,
+  `difficulte` int(1) NOT NULL,
+  `prix` double DEFAULT NULL,
+  `cuisson` time DEFAULT NULL,
+  `repos` time DEFAULT NULL,
+  `preparation` time NOT NULL,
+  `categorie` int(11) DEFAULT NULL,
+  `auteur` int(11) DEFAULT NULL,
   `image` text COLLATE utf8mb4_unicode_ci,
-  `newsletter` tinyint(1) DEFAULT NULL,
-  `dateVegetarisme` date DEFAULT NULL,
-  `signature` text COLLATE utf8mb4_unicode_ci,
-  `type_utilisateur` int(255) DEFAULT NULL,
-  `etape_inscription` tinyint(11) NOT NULL,
-  `abonnement` tinyint(1) DEFAULT NULL,
+  `personne` tinyint(4) DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  `moderation` datetime DEFAULT NULL,
+  `note` text COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `utilisateur`
+-- Déchargement des données de la table `recette`
 --
 
-INSERT INTO `utilisateur` (`id`, `creation`, `pseudo`, `prenom`, `nom`, `email`, `confirmation`, `hash_mdp`, `image`, `newsletter`, `dateVegetarisme`, `signature`, `type_utilisateur`, `etape_inscription`, `abonnement`) VALUES
-(1, '2022-04-28 17:55:39', 'ecoatelant', 'Emilie', 'COATELANT', 'emiliecoatelant@outlook.fr', NULL, '$2y$10$57onhCmOu5Kj/ZNnDb0j6ecDuo56snAVOY2MUCrxR/y99QZXWzdOm', NULL, 1, NULL, NULL, 1, 4, 0),
-(15, '2022-05-12 14:33:33', 'aneiina', 'Chloé', 'BERNASCONI', 'chloeb@gmail.com', NULL, '$2y$10$KbY/jKaNqCDlVUu0/1dzH.3VM.UlpxjWpnGl2mBYSULkFX8QXYu/O', 'aneina.png', NULL, NULL, NULL, NULL, 2, NULL),
-(17, '2022-05-16 19:09:58', 'sandrine.bidan', 'Sandrine', 'BIDAN', 'sandrine0bidan@gmail.com', NULL, '$2y$10$2efSpp.KxRPeHERCcn25N.FMsSdYmZykX5VWAA7zXs.obKHRodPl.', NULL, NULL, NULL, NULL, NULL, 2, NULL);
+INSERT INTO `recette` (`id`, `titre`, `temps`, `difficulte`, `prix`, `cuisson`, `repos`, `preparation`, `categorie`, `auteur`, `image`, `personne`, `updated`, `moderation`, `note`) VALUES
+(1, 'Tarte à la fraise', '30:00:00', 1, NULL, '30:00:00', '30:00:00', '30:00:00', 4, 1, 'taf.jpg', 6, NULL, NULL, 'false'),
+(2, 'Tarte au citron meringuée', '30:00:00', 1, NULL, '30:00:00', '30:00:00', '30:00:00', 3, 1, 'tarte-au-citron.jpg', 6, NULL, NULL, 'false'),
+(3, 'Hoummous', '03:30:00', 3, NULL, '00:30:00', NULL, '00:30:00', 1, NULL, 'houmous.png', 1, NULL, NULL, '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
