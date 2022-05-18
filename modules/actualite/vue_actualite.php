@@ -33,7 +33,7 @@ class VueActualite{
                                     <div class="overlay"></div>
                                     <img src="<?= PATHBASE ?>/data/img_actualite/<?php echo $actualite['image'] ?>" alt="image d'actualité récente">
                                 </div>
-                                <h3>Une rencontre ?</h3>
+                                <h3><?php echo $actualite['titre'] ?></h3>
                             </a>
 
                         <?php } ?>
