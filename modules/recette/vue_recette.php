@@ -25,7 +25,7 @@ class VueRecette
                                 <?php
                                 foreach ($categories as &$categorie) {
                                 ?>
-                                    <option value="<?= $categorie['id'] ?>"><?= $categorie['nom'] ?></option>
+                                    <option value="<?=$categorie['id']?>"><?=$categorie['nom']?></option>
                                 <?php } ?>
                             </select>
                         </div>
