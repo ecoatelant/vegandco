@@ -36,6 +36,15 @@ class ContRecette {
         // $image_recette = $_FILES['img-recette']['name'];
         // $dossier_import = 'data'.$image_recette;
         // move_uploaded_file($_FILES['img-recette']['tmp_name'], $dossier_import);
+        var_dump($_POST['tmpsPreparation']);
+        $yourdatetime = '00:'.$_POST['tmpsPreparation'];
+        var_dump($yourdatetime);
+        $timestamp = strtotime($yourdatetime);
+
+        echo 'Hours:' . date('h', $timestamp);  // Hours: 04
+        echo 'Minutes:' . date('i', $timestamp); // Minutes: 04
+        echo 'Seconds:' . date('s', $timestamp); // Seconds: 07
+        $temps = $_POST['tmpsPreparation']+$_POST['tmpsCuisson'];
         $idNouvelleRecette = $this->modeleRecette->ajoutNouvelleRecette(
             $_POST['titre'],
             NULL, 
