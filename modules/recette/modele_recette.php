@@ -49,10 +49,10 @@ class ModeleRecette extends Connexion {
                 $reponse = array(':titre' => $titre, ':temps' => $tmps, ':difficulte' => $difficulte, ':cuisson' => $cuisson, ':preparation' => $preparation, ':categorie' => $categorie, ':image' => $img);
                 $prepaInsert->execute($reponse);
                 $dernier_id = Connexion::$bdd->insert_id;
-
-                
+                var_dump($dernier_id);
                 return $dernier_id;
             } catch (PDOException $e) {
+                echo $e;
         }
     }
 
