@@ -18,7 +18,7 @@ class ContActualite {
         $this->vueActualite->afficherActualite($actualite);
     }
 
-    public function listeActualites () {
+    public function listeActualites() {
         $listesActualites = $this->modeleActualite->getListeActualites();
         $this->vueActualite->afficherActualites($listesActualites);
     }
