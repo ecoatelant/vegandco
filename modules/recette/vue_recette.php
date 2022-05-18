@@ -16,7 +16,7 @@ class VueRecette
                 <div class="debut">
                     <h1>Recettes</h1>
                     <div class="recherche">
-                        <input type="search" id="recette-search" name="recette" placeholder="Rechercher..">
+                        <input type="search" id="recette-search" name="recette" placeholder="Rechercher...">
                     </div>
                     <div class="categ-ajout">
                         <div class="select">
