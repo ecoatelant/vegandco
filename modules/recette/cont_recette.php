@@ -36,6 +36,7 @@ class ContRecette {
         // $image_recette = $_FILES['img-recette']['name'];
         // $dossier_import = 'data'.$image_recette;
         // move_uploaded_file($_FILES['img-recette']['tmp_name'], $dossier_import);
+        //$temps = $_POST['tmpsPreparation']+$_POST['tmpsCuisson'];
         $idNouvelleRecette = $this->modeleRecette->ajoutNouvelleRecette(
             $_POST['titre'],
             NULL, 
@@ -44,8 +45,6 @@ class ContRecette {
             $_POST['tmpsPreparation'],
             $_POST['tmpsCuisson'],
             NULL);
-        echo '<main>'.var_dump($_POST).'</main>';    
-        echo '<main>'.var_dump($idNouvelleRecette).'</main>';
         $this->vueRecette->afficherRecette($idNouvelleRecette, $this->modeleRecette->getGrandeCategoriesRecettes());
     }
 

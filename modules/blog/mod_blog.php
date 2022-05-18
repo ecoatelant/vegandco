@@ -1,19 +1,19 @@
 <?php 
 
-    require_once 'cont_actualite.php';
+    require_once 'cont_blog.php';
 
-    class ModActualite {
+    class ModBlog {
 
         function __construct($url){
 
-            $controleurActualite = new ContActualite();
+            $controleurBlog = new ContBlog();
 
             if (isset($url[1])) {
                 $action = $url['1'];
                 switch ($action) {
                     case 'affichage' :
                         if(isset($url[2])){
-                            $controleurActualite->afficherActualite($url[2]);
+                            $controleurBlog->afficherBlog($url[2]);
                     //    }else{
                             // TODO : ajouter ce qu'il se passe quand aucune recette à afficher n'est renseigné
                             // Page d'accueil avec toutes les recettes
@@ -22,11 +22,11 @@
                         break;
                 }
             }else {
-                $controleurActualite->listeActualites();
+                $controleurBlog->listeBlog();
             }
         }
     }
 
-    $modActualite = new ModActualite((isset($url)) ? $url : null);
+    $modBlog = new ModBlog((isset($url)) ? $url : null);
     
 ?>
