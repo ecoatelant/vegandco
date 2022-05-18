@@ -37,7 +37,7 @@ class VueRecette
                         <article class="une-recette" href="">
                             <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'recette'.DIRECTORY_SEPARATOR.'affichage'.DIRECTORY_SEPARATOR.$recette['id']?>" class="une-recette-link">
                                 <div class="img-recette">
-                                    <img src="./data/img_recette/<?php echo $recette['image'] ?>">
+                                    <img src="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'img_recette'.DIRECTORY_SEPARATOR.$recette['image'] ?>">
                                 </div>
                                 <div class="overlay">
                                     <h4><?= $recette['titre'] ?></h4>
