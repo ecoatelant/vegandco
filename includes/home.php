@@ -8,7 +8,7 @@
                             <div class="overlay">
                                 <h1>La commu' qui a du goût</h1>
                             </div>
-                            <img src="media/hp_1.jpg" alt="image d'accueil">
+                            <img src="<?=PATHBASE?>/media/hp_1.jpg" alt="image d'accueil">
                         </div>
                     </li>
                     <li class="splide__slide">
@@ -16,7 +16,7 @@
                             <div class="overlay">
                                 <h2>La commu' qui a du goût</h2>
                             </div>
-                            <img src="media/hp_2.jpg" alt="image d'accueil">
+                            <img src="<?=PATHBASE?>/media/hp_2.jpg" alt="image d'accueil">
                         </div>
                     </li>
                     <li class="splide__slide">
@@ -24,7 +24,7 @@
                             <div class="overlay">
                                 <h2>La commu' qui a du goût</h2>
                             </div>
-                            <img src="media/hp_3.jpg" alt="image d'accueil">
+                            <img src="<?=PATHBASE?>/media/hp_3.jpg" alt="image d'accueil">
                         </div>
                     </li>
                 </ol>

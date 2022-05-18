@@ -19,17 +19,20 @@
         }
 
         function modificationInformation(){
-            
+            $this->vueEspaceUtil->modificationInformation();
         }
 
         function dashboard_perso(){
             $stat_co2 = $this->modeleEspaceUtil->getStatCO2($_SESSION['idUtilisateur']);
-            echo $stat_co2;
+            $stat_eau = $this->modeleEspaceUtil->getStatEau($_SESSION['idUtilisateur']);
+            $stat_economie = $this->modeleEspaceUtil->getStatEconomieFinanciere($_SESSION['idUtilisateur']);
+            $stat_animaux = $this->modeleEspaceUtil->getStatAnimaux($_SESSION['idUtilisateur']);
+
             $stats = array(
                 "co2" => $stat_co2,
-                "eau" => NULL,
-                "economie" => NULL,
-                "animaux" => NULL
+                "eau" => $stat_eau,
+                "economie" => $stat_economie,
+                "animaux" => $stat_animaux
             );
             $this->vueEspaceUtil->dashboard($stats);
         }

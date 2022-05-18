@@ -18,13 +18,29 @@
                         $controleurConnexion->deconnexion();
                         break;
                     case "inscription":
-                        $controleurConnexion->inscription();
+                        if(isset($url[2])){
+                            $controleurConnexion->inscription($url[2]);
+                        }else{
+                            require_once 'includes'.DIRECTORY_SEPARATOR.'error.php';
+                        }
+                        break;
+                    case "inscription2":
+                        $controleurConnexion->inscription2();
                         break;
                     case "formConnexion":
                         $controleurConnexion->formConnexion();
                         break;
                     case "formInscription":
                         $controleurConnexion->formInscription();
+                        break;
+                    case "formVeg":
+                        $controleurConnexion->formVeg();
+                        break;
+                    case "formCalendrier":
+                        $controleurConnexion->formCalendrier();
+                        break;
+                    case "formNewsletter":
+                        $controleurConnexion->formNewsletter();
                         break;
                     case "mot-de-passe-oublie":
                         $controleurConnexion->mDPOublie();

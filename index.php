@@ -33,13 +33,13 @@ if (!in_array($page, array('connexion', 'recette', 'espace-utilisateur', 'actual
         $pageContent = ob_get_clean();
         require 'layout.php';
     } else { // Ni module ni page static
-        $error = '404';
+        //TODO : gestion des erreurs sur le site, 404 et d'autres s'ils en existent avec une variable $error
         ob_start();
         require_once 'includes'.DIRECTORY_SEPARATOR.'error.php';
         $pageContent = ob_get_clean();
         require_once 'layout.php';
-        http_response_code(404);
-        die;
+        //TODO : voir à quoi cela peut servir :http_response_code(404);
+        //die;
     }
 } else { // Module
     $pageTitle = ucfirst($page) . ' - Veg & Co\'';

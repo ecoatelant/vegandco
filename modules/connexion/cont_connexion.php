@@ -34,6 +34,118 @@
             }
         }
 
+        function inscription($etat_inscription){
+            //TODO : sécurité : pas le droit d'accéder à cet espace si connecté
+            switch ($etat_inscription) {
+                case '1':
+                    //Affichage du formulaire pour le nom, le prénom, le pseudo, l'email et le mot de passe
+                    $this->vueConnexion->formInscription();
+                    break;
+                case '1-traitement':
+                    //Insertion dans la BD du nom, prénom, pseudo, email et mot de passe
+                    //Vérifie si la page précédente est bien le formulaire d'inscription
+                    if(isset($_POST['formulaireInscription'])){
+                        //Vérifie si les deux mots de passe rentrées sont identiques
+                        $mdpIdentique=$this->modeleConnexion->mDPRepetesIdentiques($_POST['mdp'], $_POST['mdp_repete']);
+                        //TODO : diviser les deux
+                        //Vérifie si l'utilisateur n'existe pas déjà (le pseudo et l'adresse e-mail doivent être différent)
+                        $emailPseudoUnique=$this->modeleConnexion->verifPseudoEmailUnique($_POST['pseudo'], $_POST['email']);
+                        if($mdpIdentique && $emailPseudoUnique){
+                            $this->modeleConnexion->nouvelUtilisateurEtape1($_POST['pseudo'], $_POST['prenom'], $_POST['nom'], $_POST['email'], $_POST['mdp']);
+                            //TODO : Vérification de la bonne inscription de l'utilisateur donc attribution des cookies sinon affichage erreur d'inscription
+                            $nouvelUtil = $this->modeleConnexion->getUtilisateurParEmail($_POST['email']);
+                            if(isset($nouvelUtil)){
+                                $_SESSION['idUtilisateur'] = $nouvelUtil[0]['id'];
+                                //TODO : Affectation Cookies
+                            }
+                            header('Location: '.PATHBASE.'/connexion/inscription/2');
+                            exit;
+                        }else{
+                            if(!$mdpIdentique){
+                                $_SESSION['erreur'][0] = "Les mots de passe ne sont pas identiques";
+                            }
+                            if(!$emailPseudoUnique){
+                                //DIVISER EN DEUX CETTE ERREUR
+                                $_SESSION['erreur'][1] = "Le pseudo est déjà utilisé par quelqu'un d'autre, veuillez en précisez un autre";
+                            }
+                            header('Location:'.PATHBASE.'/connexion/inscription/1');
+                            exit;
+                        }
+                    }
+                    //Si l'utilisateur ne provient pas du formulaire
+                    else{
+                        require_once 'includes'.DIRECTORY_SEPARATOR.'error.php';
+                    }
+                    break;
+                case '2':
+                    //Affichage du formulaire pour le végétarisme
+                    $this->vueConnexion->formVeg();
+                    break;
+                case '2-traitement':
+                    //Vérifie si la page précédente est bien le formulaire d'inscription
+                    if(isset($_POST['formulaireVegOui'])){
+                        $this->vueConnexion->formCalendrier();
+                    }else if(isset($_POST['formulaireVegNon'])){
+                        $this->modeleConnexion->nouvelUtilisateurEtape2PasVeg($_SESSION['idUtilisateur']);
+                        header('Location:'.PATHBASE.'/connexion/inscription/3');
+                        exit;
+                    }
+                    //Si l'utilisateur ne provient pas du formulaire
+                    else{
+                        require_once 'includes'.DIRECTORY_SEPARATOR.'error.php';
+                    }
+                    break;
+                case '2-bis':
+                    //Affichage du formulaire pour le végétarisme
+                    $this->vueConnexion->formCalendrier();
+                    break;
+                case '2-bis-traitement':
+                    //Si végétarien, formulaire de date
+                    //Vérifie si la page précédente est bien le formulaire de calendrier pour la date de végétarisme
+                    if(isset($_POST['formCalendrierVeg'])){
+                        $this->modeleConnexion->nouvelUtilisateurEtape2Veg($_SESSION['idUtilisateur'], $_POST['dateVegetarisme']);
+                        header('Location:'.PATHBASE.'/connexion/inscription/3');
+                        exit;
+                    }
+                    //Si l'utilisateur ne provient pas du formulaire
+                    else{
+                        require_once 'includes'.DIRECTORY_SEPARATOR.'error.php';
+                    }
+                    break;
+                case '3':
+                    //Formulaire de newsletter
+                    $this->vueConnexion->formNewsletter();
+                    break;
+                case '3-traitement':
+                    //Newsletter
+                    //Vérifie si la page précédente est bien le formulaire de newsletter
+                    if(isset($_POST['formNewsletterOui']) || isset($_POST['formNewsletterNon'])){
+                        $newsletter=0;
+                        if(isset($_POST['formNewsletterOui'])){
+                            $newsletter=1;
+                        }
+                        $this->modeleConnexion->nouvelUtilisateurEtape3($_SESSION['idUtilisateur'], $newsletter);
+                        //header('Location:'.PATHBASE.'/connexion/inscription/4');
+                        header('Location:'.PATHBASE.'/espace-utilisateur');
+                        //exit;
+                    //Si l'utilisateur ne provient pas du formulaire
+                    }else{
+                        require_once 'includes'.DIRECTORY_SEPARATOR.'error.php';
+                    }
+                    break;
+                case '4':
+                    //Formulaire d'abonnement
+                    //TODO
+                    break;
+                case '4-traitement':
+                    //Abonnement
+                    //TODO
+                    break;
+
+            }
+            
+        }
+
         function deconnexion(){
             session_unset();
             session_destroy();
@@ -41,39 +153,8 @@
             exit;
         }
 
-        function inscription(){
-            //Vérifie si la page précédente est bien le formulaire d'inscription
-            if(isset($_POST['formulaireInscription'])){
-                //Vérifie si les deux mots de passe rentrées sont identiques
-                if($this->modeleConnexion->mDPRepetesIdentiques($_POST['mdp'], $_POST['mdp_repete'])){
-                    //Vérifie si l'utilisateur n'existe pas déjà (le pseudo et l'adresse e-mail doivent être différent)
-                    if(!($this->modeleConnexion->verifPseudoEmailUnique($_POST['pseudo'], $_POST['email']))){
-                        //TODO : Le pseudo ou l'email est déjà utilisé
-                        echo '<main>pseudo ou email déjà utilisé</main>';
-                    }else{
-                        /*$nouvelUtilisateur =*/ $this->modeleConnexion->nouvelUtilisateur($_POST['pseudo'], $_POST['prenom'], $_POST['nom'], $_POST['email'], $_POST['mdp']);
-                        
-                        //TODO : Vérification de la bonne inscription de l'utilisateur donc attribution des cookies sinon affichage erreur d'inscription
-                        header('Location: '.PATHBASE.'/connexion/formConnexion');
-                        exit;
-                    }
-                }else{
-                    //TODO : Les mots de passe ne sont pas identiques.
-                    echo '<main>Les mots de passe ne sont pas identiques.</main>';
-                }
-            }
-            //Si l'utilisateur ne provient pas du formulaire
-            else{
-                //TODO : envoie vers la page 404
-            }
-        }
-
         function formConnexion(){
             $this->vueConnexion->formConnexion();
-        }
-
-        function formInscription(){
-            $this->vueConnexion->formInscription();
         }
 
         function mDPOublie(){
