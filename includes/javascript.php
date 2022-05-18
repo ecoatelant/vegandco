@@ -1,2 +1,2 @@
-<script src="js/splide.min.js"></script>
-<script src="js/slider.js"></script>
+<script src="script/splide.min.js"></script>
+<script src="script/slider.js"></script>
