@@ -12,9 +12,13 @@
                 <a class="deconnexion" href="<?=PATHBASE?>//connexion/deconnexion">Se déconnecter</a>
                 <div class="informations">
                     <div class="information_image"> 
-                        <img src="data/img_utilisateur/<?php 
-                            if(isset($utilisateur[0]['image'])) echo $utilisateur[0]['image'];   
-                            ?>">
+                        <img src="<?php 
+                            if(isset($utilisateur[0]['image'])) {
+                                echo PATHBASE.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'img_utilisateur'.DIRECTORY_SEPARATOR.$utilisateur[0]['image'];  
+                            }else{
+                                echo PATHBASE.DIRECTORY_SEPARATOR.'media'.DIRECTORY_SEPARATOR.'avatar_defaut';
+                            } 
+                            ?>"/>
                     </div>
                     <div class="informations_ecrite">
                         <p><?php echo $utilisateur[0]['prenom'].' '.$utilisateur[0]['nom'] ?></p>
@@ -93,7 +97,7 @@
                         </div>
                         <div class="eau">
                             <div class="widget-perso">
-                                <p>12L</p>
+                                <p><?=$statistiques['eau']?>L</p>
                                 <svg width="75" height="76" viewBox="0 0 75 76" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <rect width="75" height="76" fill="url(#pattern0)"/>
                                 <defs>
@@ -110,7 +114,7 @@
                         </div>
                         <div class="economie-financiere">
                             <div class="widget-perso">
-                                <p>61€</p>
+                                <p><?=$statistiques['economie']?>€</p>
                                 <svg width="77" height="74" viewBox="0 0 77 74" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <rect width="77" height="74" fill="url(#pattern0)"/>
                                     <defs>
@@ -127,7 +131,7 @@
                         </div>
                         <div class="animaux">
                             <div class="widget-perso">
-                                <p>32</p>
+                                <p><?=$statistiques['animaux']?></p>
                                 <svg width="73" height="74" viewBox="0 0 73 74" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <rect width="73" height="74" fill="url(#pattern0)"/>
                                     <defs>
@@ -186,6 +190,57 @@
                         </div>
                     </article>
                         
+                </section>
+            </main>
+            <?php
+        }
+
+        function modificationInformation(){
+            ?>
+            <main class="inscription mot-de-passe connexion">
+                <section>
+                    <article>
+                        <div class="image-slot login-image">
+                            <div class="svg-co">
+                                <svg width="84" height="81" viewBox="0 0 84 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M52.4821 52.0349C52.471 55.3921 52.18 58.7421 51.6125 62.0475C50.8735 66.41 50.1952 70.6015 48.3866 74.7254C47.2823 77.2376 45.4346 80.38 42.4087 80.38C40.6697 80.38 39.2697 78.9754 38.2828 77.6292C36.0221 74.5453 34.9308 71.1012 33.67 67.4905C32.3563 63.9435 31.3623 60.2782 30.7006 56.5415C30.4182 54.7553 30.2728 52.9489 30.2659 51.139C30.2659 49.3381 30.6354 47.6183 30.9354 45.8535C31.0299 45.221 31.1635 44.5955 31.3354 43.9807C32.3397 40.5951 35.2482 38.2225 38.3872 37.1015C41.0803 36.1441 44.0283 36.3171 46.5998 37.5832C48.3705 38.4892 49.8424 39.9179 50.83 41.6891C52.0603 43.8096 52.2212 45.6284 52.369 48.055C52.4531 49.3847 52.4908 50.7113 52.4821 52.0349Z" fill="#fff"></path>
+                                    <path d="M42.4296 29.785C42.1978 29.785 41.963 29.767 41.7253 29.7309C36.7821 29.1322 32.1606 24.9858 31.8693 19.6463C31.465 12.596 39.195 6.22107 45.7121 9.19244C46.3081 9.48144 46.8698 9.841 47.3859 10.2639C50.9509 13.1048 53.7986 17.9175 52.2422 22.5636C50.7814 26.9216 46.8598 29.9786 42.4296 29.785Z" fill="#fff"></path>
+                                    <path d="M83.2888 44.2278C83.3323 51.4581 80.8759 58.3958 77.8891 64.8113C76.6717 67.418 74.9501 72.4648 71.5807 72.4648C66.8984 72.4648 64.1246 63.0104 62.9464 59.5934C60.59 52.7142 57.9075 44.1197 60.2248 36.8984C61.8812 31.73 66.3114 28.511 71.5807 28.511C75.0588 28.511 77.4326 30.6495 79.8064 33.1526C81.6889 35.1381 82.6758 37.8888 83.0453 40.6441C83.2045 41.8316 83.2858 43.0289 83.2888 44.2278V44.2278Z" fill="#fff"></path>
+                                    <path d="M71.5808 21.6585C70.7591 21.6585 69.9243 21.627 69.0722 21.5774C68.4395 21.5659 67.8121 21.4551 67.2114 21.2488C65.6246 20.6365 63.7986 18.7456 62.7856 17.3635C61.6094 15.7983 60.9196 13.9003 60.8074 11.9205C60.6118 7.67951 62.9812 4.52355 66.1941 2.31303C71.9373 -1.6308 80.9759 1.74126 81.6107 9.29576C81.9324 13.073 81.3802 16.5396 78.5674 19.2003C76.5501 21.1407 74.1415 21.627 71.5808 21.6585Z" fill="#fff"></path>
+                                    <path d="M25.509 44.1556C25.2617 46.603 24.8359 49.0276 24.2351 51.4084C23.2054 56.0582 21.7119 60.5846 19.7789 64.9147C18.6528 67.3773 16.4921 72.3882 13.2575 72.3882C10.4837 72.3882 9.29681 69.7544 8.31426 67.5529L4.58402 59.1926C2.16672 53.5848 0.912241 47.5144 0.901611 41.3733C0.835298 39.7314 1.09116 38.0927 1.65374 36.5561C3.21888 32.7923 5.47963 30.0236 9.43594 28.9385C12.7923 28.0082 16.3663 28.4634 19.405 30.2081C23.2308 32.4862 25.4394 37.0468 25.5785 41.4949C25.6054 42.3824 25.5822 43.2708 25.509 44.1556V44.1556Z" fill="#fff"></path>
+                                    <path d="M13.2617 22.0774C8.85763 22.0369 4.29266 19.007 3.38836 14.3609C3.21837 13.2565 3.17459 12.1353 3.25793 11.0203C3.34488 8.62971 3.47966 6.90541 4.8448 4.87948C5.90919 3.23336 7.44477 1.97384 9.23587 1.27781C12.3748 0.143283 17.4224 0.733056 19.9657 3.06964C21.1301 4.16567 22.0502 5.51101 22.6621 7.01225C23.274 8.51349 23.563 10.1346 23.509 11.7632C23.3438 17.1657 18.6354 22.0504 13.4139 22.0774H13.2617Z" fill="#fff"></path>
+                                </svg>
+                            </div>
+                            <picture>
+                                <source srcset="<?=PATHBASE?>/media/connexion_mob.jpg" media="(max-width: 1023px)">
+                                <img src="<?=PATHBASE?>/media/connexion_desk.jpg" alt="visuel téléphone avec des légumes autour">
+                            </picture>
+                        </div>
+                        <div class="signup">
+                            <h1>Modifier mes informations</h1>
+                            <div class="avatar">
+                                
+                            </div>
+                            <div class="fsignup">
+                                <form action="<?= PATHBASE ?>/espace-utilisateur/modifier-informations-traitements" method="post">
+                                    <div>
+                                        <input type="text" id="nom" name="nom" placeholder="Nom">
+                                    </div>
+                                    <div>
+                                        <input type="text" id="nom" name="prenom" placeholder="Prénom">
+                                    </div>
+                                    <div>
+                                        <input type="text" id="nom" name="email" placeholder="Adresse Email">
+                                    </div>
+                                    <div>
+                                        <button class="cta" type="submit">Valider</button>
+                                    </div>
+                                </form>
+                                <h2 class="suppression-compte">Supprimer mon compte</h2>
+                                <a href="<?= PATHBASE ?>/espace-utilisateur/suppression-compte">Supprimer mon compte</a>
+                            </div>
+                        </div>
+                    </article>
                 </section>
             </main>
             <?php

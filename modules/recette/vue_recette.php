@@ -35,7 +35,7 @@ class VueRecette
                 <div class="toutes-recettes">
                     <?php foreach ($recettes as &$recette) { ?>
                         <article class="une-recette" href="">
-                            <a href="" class="une-recette-link">
+                            <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'recette'.DIRECTORY_SEPARATOR.'affichage'.DIRECTORY_SEPARATOR.$recette['id']?>" class="une-recette-link">
                                 <div class="img-recette">
                                     <img src="./data/img_recette/<?php echo $recette['image'] ?>">
                                 </div>

@@ -7,7 +7,7 @@ function buildpath(...$segments){
 
 //Pour la portabilité du projet
 //define('PATHBASE','/~gaiennes/vegandco');
-define('PATHBASE','/vegandco');
+define('PATHBASE',DIRECTORY_SEPARATOR.'vegandco');
 //define('PATHBASE','');
 
 ?>
