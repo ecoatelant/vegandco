@@ -14,9 +14,9 @@
                     case 'affichage' :
                         if(isset($url[2])){
                             $controleurBlog->afficherBlog($url[2]);
-                    //    }else{
-                            // TODO : ajouter ce qu'il se passe quand aucune recette à afficher n'est renseigné
-                            // Page d'accueil avec toutes les recettes
+                        }else{
+                            // TODO : ajouter ce qu'il se passe quand aucun blog à afficher n'est renseigné
+                            // Page d'accueil avec toutes les blog
                    //         $controleurRecette->affichagePageRecettes($url[2]);
                         }
                         break;
