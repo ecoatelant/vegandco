@@ -58,8 +58,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'mentions-legales';?>">
-                            Mentions Légales
+                        <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'cgu';?>">
+                            Condition d'Utilisation Générale
                         </a>
                     </li>
                 </ol>
