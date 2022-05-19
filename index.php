@@ -5,7 +5,18 @@ if (!isset($_SESSION['idUtilisateur'])) {
     session_start();
 }
 
-// setcookie('utilisateur','emilie', time()+60*60*24*30);
+/*echo (!isset($_COOKIE['idUtilisateur']));
+var_dump($_COOKIE);
+if(isset($_COOKIE['idUtilisateur'])){
+    setcookie('idUtilisateur','0',
+    [
+        'expires' => time() + 365*24*3600,
+        'secure' => true,
+        'httponly' => true,
+    ]
+);
+}
+echo $_COOKIE['idUtilisateur'];*/
 
 //Pour la portabilité du projet
 require_once __DIR__.'/config/path.php';
@@ -26,7 +37,7 @@ if (isset($url[0])) {
 // Si c'est une page n'appartenant pas au module
 if (!in_array($page, array('connexion', 'recette', 'espace-utilisateur', 'actualite', 'blog'))) {
     // Si c'est une page static
-    if (in_array($page, array('home', 'propos', 'mention','oops', 'contact'))) {
+    if (in_array($page, array('home', 'apropos', 'mention','oops', 'contact'))) {
         ob_start();
         $pageTitle = ucfirst($page) . ' - Veg & Co\'';
         require "includes/$page.php";

@@ -161,11 +161,14 @@
                         Forum
                     </a>
                 </li>
-                <li>
-                    <a class="inscri-link" href="<?=PATHBASE?>/connexion/inscription/1" rel="noopener noreferrer">
-                        S'inscrire
-                    </a>
-                </li>
+                <?php 
+                        if (!isset($_SESSION['idUtilisateur'])) { ?>
+                            <li>
+                                <a class="inscri-link" href="<?=PATHBASE?>/connexion/inscription/1" rel="noopener noreferrer">
+                                    S'inscrire
+                                </a>
+                            </li>
+                        <?php }?>
 
                 <li>
                     <a href="<?php 

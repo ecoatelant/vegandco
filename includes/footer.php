@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'acutalite';?>">
+                        <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'actualite';?>">
                             Actualités
                         </a>
                     </li>
