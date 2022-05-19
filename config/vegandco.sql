@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 18 mai 2022 à 23:24
+-- Généré le : jeu. 19 mai 2022 à 09:18
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `actualite`;
 CREATE TABLE IF NOT EXISTS `actualite` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
-  `titre` varchar(256) NOT NULL,
-  `image` text,
+  `titre` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `date` datetime NOT NULL,
   `auteur` int(255) DEFAULT NULL,
   `chemin` varchar(256) NOT NULL,
@@ -44,6 +44,31 @@ CREATE TABLE IF NOT EXISTS `actualite` (
 
 INSERT INTO `actualite` (`id`, `titre`, `image`, `date`, `auteur`, `chemin`) VALUES
 (1, 'Venez rencontrer la team Veg & Co’ !', 'a_rencontremegots.jpg', '2022-05-27 00:00:00', 17, 'actualite-1.html');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `blog`
+--
+
+DROP TABLE IF EXISTS `blog`;
+CREATE TABLE IF NOT EXISTS `blog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titre` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `date` datetime NOT NULL,
+  `auteur` int(11) NOT NULL,
+  `chemin` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `blog`
+--
+
+INSERT INTO `blog` (`id`, `titre`, `image`, `date`, `auteur`, `chemin`) VALUES
+(1, 'Le végétarisme nuit-il à la santé ?', 'b_vraifaux.jpg', '2015-04-07 00:00:00', 25, 'blog_static.html'),
+(2, 'L’impact de l’élevage sur l\'environnement', 'b_impact.jpg', '2022-05-14 00:00:00', 17, 'blog2_static.html');
 
 -- --------------------------------------------------------
 
@@ -360,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `etape_inscription` tinyint(11) NOT NULL,
   `abonnement` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -369,8 +394,9 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 INSERT INTO `utilisateur` (`id`, `creation`, `pseudo`, `prenom`, `nom`, `email`, `confirmation`, `hash_mdp`, `image`, `newsletter`, `dateVegetarisme`, `signature`, `type_utilisateur`, `etape_inscription`, `abonnement`) VALUES
 (1, '2022-04-28 17:55:39', 'ecoatelant', 'Emilie', 'COATELANT', 'emiliecoatelant@outlook.fr', NULL, '$2y$10$57onhCmOu5Kj/ZNnDb0j6ecDuo56snAVOY2MUCrxR/y99QZXWzdOm', NULL, 1, NULL, NULL, 1, 4, 0),
 (15, '2022-05-12 14:33:33', 'aneiina', 'Chloé', 'BERNASCONI', 'chloeb@gmail.com', NULL, '$2y$10$KbY/jKaNqCDlVUu0/1dzH.3VM.UlpxjWpnGl2mBYSULkFX8QXYu/O', 'aneina.png', NULL, NULL, NULL, NULL, 2, NULL),
-(17, '2022-05-16 19:09:58', 'sandrine.bidan', 'Sandrine', 'BIDAN', 'sandrine0bidan@gmail.com', NULL, '$2y$10$2efSpp.KxRPeHERCcn25N.FMsSdYmZykX5VWAA7zXs.obKHRodPl.', NULL, NULL, NULL, NULL, NULL, 2, NULL),
-(24, '2022-05-18 01:34:11', 'test', 'TEST', 'TEST', 'deborah.ricci@recreaction.fr', NULL, '$2y$10$.hhLU78U7r9XnLDa3alQA.fzHcaDJ3.kcRJ1HVNtRP2ZUVD36WVcu', NULL, 1, '2021-01-01', NULL, NULL, 4, NULL);
+(17, '2022-05-16 19:09:58', 'sandrine.bidan', 'Sandrine', 'BIDAN', 'sandrine0bidan@gmail.com', NULL, '$2y$10$2efSpp.KxRPeHERCcn25N.FMsSdYmZykX5VWAA7zXs.obKHRodPl.', NULL, NULL, '2016-05-18', NULL, NULL, 2, NULL),
+(24, '2022-05-18 01:34:11', 'test', 'TEST', 'TEST', 'deborah.ricci@recreaction.fr', NULL, '$2y$10$.hhLU78U7r9XnLDa3alQA.fzHcaDJ3.kcRJ1HVNtRP2ZUVD36WVcu', NULL, 1, '2021-01-01', NULL, NULL, 4, NULL),
+(25, '2022-05-19 08:43:29', '', '', 'L\'équipe PasseportSanté', '', NULL, '', NULL, NULL, NULL, NULL, NULL, 5, NULL);
 
 -- --------------------------------------------------------
 
