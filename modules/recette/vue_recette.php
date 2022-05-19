@@ -16,7 +16,7 @@ class VueRecette
                 <div class="debut">
                     <h1>Recettes</h1>
                     <div class="recherche">
-                        <input type="search" id="recette-search" name="recette" placeholder="Rechercher..">
+                        <input type="search" id="recette-search" name="recette" placeholder="Rechercher...">
                     </div>
                     <div class="categ-ajout">
                         <div class="select">
@@ -36,7 +36,7 @@ class VueRecette
                     <?php foreach ($recettes as &$recette) { ?>
                         <article class="une-recette" href="">
                             <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'recette'.DIRECTORY_SEPARATOR.'affichage'.DIRECTORY_SEPARATOR.$recette['id']?>" class="une-recette-link">
-                                <div class="img-recette">
+                                <div class="img-afficherRecette">
                                     <img src="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'img_recette'.DIRECTORY_SEPARATOR.$recette['image'] ?>">
                                 </div>
                                 <div class="overlay">
@@ -53,24 +53,6 @@ class VueRecette
                         </article>
 
                     <?php } ?>
-
-                    <!-- NE PAS ENLEVER -->
-                    <article class="une-recette derniere-recette" href="">
-                        <a href="" class="une-recette-link">
-                            <div class="img-recette">
-                                <img src="../media/recettes/r_tarte_aux_fraises.jpg">
-                            </div>
-                            <div class="overlay">
-                            </div>
-                            <div class="svg-coeur">
-                                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 480 480" preserveAspectRatio="xMidYMid meet">
-                                    <g id="layer101" fill="#ff3d00" stroke="none">
-                                        <path d="M185 357 c-122 -103 -135 -120 -135 -171 0 -39 5 -53 29 -77 24 -23 38 -29 73 -29 24 0 54 7 66 16 20 14 24 14 44 0 12 -9 42 -16 66 -16 35 0 49 6 73 29 24 24 29 38 29 77 0 42 -4 51 -43 88 -46 44 -144 126 -149 125 -2 0 -25 -19 -53 -42z" />
-                                    </g>
-                                </svg>
-                            </div>
-                        </a>
-                    </article>
                 </div>
             </section>
         </main>

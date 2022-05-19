@@ -26,40 +26,40 @@
             <div class="nav-footer">
                 <ol>
                     <li>
-                        <a href="">
+                        <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'recette';?>">
                             Recettes
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'blog';?>">
                             Blog
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'forum';?>">
                             Forum
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'actualite';?>">
                             Actualités
                         </a>
                     </li>
                 </ol>
                 <ol>
                     <li>
-                        <a href="">
+                        <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'a-propos';?>">
                             À propos
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'contact';?>">
                             Contact
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            Mentions Légales
+                        <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'cgu';?>">
+                            Condition d'Utilisation Générale
                         </a>
                     </li>
                 </ol>

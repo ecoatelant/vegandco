@@ -16,7 +16,7 @@
         <nav class="navbar-mobile hide-desktop">
             <ol>
                 <li>
-                    <a href="<?=PATHBASE?>/recette" rel="noopener noreferrer">
+                    <a href="<?=PATHBASE?>/recette">
                         <svg class="<?php 
                         if(isset($url['0'])){
                             if($url[0]=='recette'){
@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?=PATHBASE?>/actualite" rel="noopener noreferrer">
+                    <a href="<?=PATHBASE?>/actualite">
                         <svg class="<?php 
                         if(isset($url['0'])){
                             if($url[0]=='actualite' || $url[0]=='blog' || $url[0]=='actualite-blog'){
@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?=PATHBASE?>/home" rel="noopener noreferrer">
+                    <a href="<?=PATHBASE?>/home">
                         <svg class="<?php 
                         if(isset($url['0'])){
                             if($url[0]=='home'){
@@ -57,7 +57,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?=PATHBASE?>/forum" rel="noopener noreferrer">
+                    <a href="<?=PATHBASE?>/forum">
                         <svg class="<?php 
                         if(isset($url['0'])){
                             if($url[0]=='forum'){
@@ -100,8 +100,8 @@
         </nav>
         <!-- NAVBAR DESKTOP -->
         <nav class="navbar-desktop hide-mobile">
-            <a href="<?=PATHBASE?>/home">
-                <svg class="logo-desktop" width="84" height="81" viewBox="0 0 84 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a class="logo-desktop" href="<?=PATHBASE?>/home">
+                <svg width="84" height="81" viewBox="0 0 84 81" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M52.4821 52.0349C52.471 55.3921 52.18 58.7421 51.6125 62.0475C50.8735 66.41 50.1952 70.6015 48.3866 74.7254C47.2823 77.2376 45.4346 80.38 42.4087 80.38C40.6697 80.38 39.2697 78.9754 38.2828 77.6292C36.0221 74.5453 34.9308 71.1012 33.67 67.4905C32.3563 63.9435 31.3623 60.2782 30.7006 56.5415C30.4182 54.7553 30.2728 52.9489 30.2659 51.139C30.2659 49.3381 30.6354 47.6183 30.9354 45.8535C31.0299 45.221 31.1635 44.5955 31.3354 43.9807C32.3397 40.5951 35.2482 38.2225 38.3872 37.1015C41.0803 36.1441 44.0283 36.3171 46.5998 37.5832C48.3705 38.4892 49.8424 39.9179 50.83 41.6891C52.0603 43.8096 52.2212 45.6284 52.369 48.055C52.4531 49.3847 52.4908 50.7113 52.4821 52.0349Z" fill="#fff"></path>
                     <path d="M42.4296 29.785C42.1978 29.785 41.963 29.767 41.7253 29.7309C36.7821 29.1322 32.1606 24.9858 31.8693 19.6463C31.465 12.596 39.195 6.22107 45.7121 9.19244C46.3081 9.48144 46.8698 9.841 47.3859 10.2639C50.9509 13.1048 53.7986 17.9175 52.2422 22.5636C50.7814 26.9216 46.8598 29.9786 42.4296 29.785Z" fill="#fff"></path>
                     <path d="M83.2888 44.2278C83.3323 51.4581 80.8759 58.3958 77.8891 64.8113C76.6717 67.418 74.9501 72.4648 71.5807 72.4648C66.8984 72.4648 64.1246 63.0104 62.9464 59.5934C60.59 52.7142 57.9075 44.1197 60.2248 36.8984C61.8812 31.73 66.3114 28.511 71.5807 28.511C75.0588 28.511 77.4326 30.6495 79.8064 33.1526C81.6889 35.1381 82.6758 37.8888 83.0453 40.6441C83.2045 41.8316 83.2858 43.0289 83.2888 44.2278V44.2278Z" fill="#fff"></path>
@@ -113,6 +113,7 @@
             <ol>
                 <li>
                     <a class="<?php 
+                        //TODO quand url est rien
                         if(isset($url['0'])){
                             if($url[0]=='home'){
                                 echo 'active-link';
@@ -161,11 +162,14 @@
                         Forum
                     </a>
                 </li>
-                <li>
-                    <a class="inscri-link" href="<?=PATHBASE?>/connexion/inscription/1" rel="noopener noreferrer">
-                        S'inscrire
-                    </a>
-                </li>
+                <?php 
+                        if (!isset($_SESSION['idUtilisateur'])) { ?>
+                            <li>
+                                <a class="inscri-link" href="<?=PATHBASE?>/connexion/inscription/1" rel="noopener noreferrer">
+                                    S'inscrire
+                                </a>
+                            </li>
+                        <?php }?>
 
                 <li>
                     <a href="<?php 

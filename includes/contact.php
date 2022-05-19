@@ -3,8 +3,8 @@
         <article>
             <div class="image-slot">
                 <picture>
-                    <source srcset="media/inscription/contact_mob.jpg" media="(max-width: 1023px)">
-                    <img src="media/inscription/contact_desk.jpg" alt="visuel de contact" />
+                    <source srcset="media/contact_mob.jpg" media="(max-width: 1023px)">
+                    <img src="media/contact_desk.jpg" alt="visuel de contact" />
                 </picture>
             </div>
             <div class="signup">
