@@ -1,26 +1,26 @@
 <?php
 
-require_once 'vue_actualite.php';
-require_once 'modele_actualite.php';
+require_once 'vue_blog.php';
+require_once 'modele_blog.php';
 
-class ContActualite {
+class ContBlog {
 
-    public $modeleActualite;
-    public $vueActualite;
+    public $modeleBlog;
+    public $vueBlog;
 
     public function __construct() {
-		$this->modeleActualite = new  ModeleActualite();
-        $this->vueActualite = new VueActualite();
+		$this->modeleBlog = new  ModeleBlog();
+        $this->vueBlog = new VueBlog();
     }
 
-    public function afficherActualite($idActualite){
-        $actualite = $this->modeleActualite->getActualite($idActualite);
-        $this->vueActualite->afficherActualite($actualite);
+    public function afficherBlog($idBlog){
+        $blog = $this->modeleBlog->getBlog($idBlog);
+        $this->vueBlog->afficherBlog($blog);
     }
 
-    public function listeActualites() {
-        $listesActualites = $this->modeleActualite->getListeActualites();
-        $this->vueActualite->afficherActualites($listesActualites);
+    public function listeBlog() {
+        $listesBlog = $this->modeleBlog->getListeBlog();
+        $this->vueBlog->afficherBlogs($listesBlog);
     }
 
 }

@@ -24,7 +24,7 @@ if (isset($url[0])) {
 }
 
 // Si c'est une page n'appartenant pas au module
-if (!in_array($page, array('connexion', 'recette', 'espace-utilisateur', 'actualite',' blog'))) {
+if (!in_array($page, array('connexion', 'recette', 'espace-utilisateur', 'actualite', 'blog'))) {
     // Si c'est une page static
     if (in_array($page, array('home', 'propos', 'mention','oops', 'contact'))) {
         ob_start();
