@@ -21,6 +21,14 @@
                     //TODO Quand on se connecte
                     //?
                     $_SESSION['idUtilisateur'] = $requete[0]['id'];
+                    /*setcookie(
+                        'idUtilisateur', 
+                        $requete[0]['id'], 
+                        [
+                            'expires' => time() + 365*24*3600,
+                            'secure' => true,
+                            'httponly' => true,
+                        ]);*/
                     header('Location: '.PATHBASE.'/espace-utilisateur');
                     exit;
                 } else {
