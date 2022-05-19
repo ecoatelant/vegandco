@@ -113,6 +113,7 @@
             <ol>
                 <li>
                     <a class="<?php 
+                        //TODO quand url est rien
                         if(isset($url['0'])){
                             if($url[0]=='home'){
                                 echo 'active-link';
