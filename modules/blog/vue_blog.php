@@ -43,12 +43,6 @@ class VueBlog
                             <h3><?= $blog['titre'] ?></h3>
                         </a>
                     <?php } ?>
-                        <!-- NE PAS ENLEVER -->
-                        <a class="recette-container">
-                            <div class="img-recette">
-                                <div class="overlay"></div>
-                            </div>
-                        </a>
                     </div>
                 </section>
             </div>
