@@ -43,7 +43,7 @@
                                         </div>
                                         <p class="texte-cgu">
                                             En créant mon compte, j'ai lu et accepte les&nbsp;
-                                            <a href="<?= PATHBASE ?>/CGU">Conditions Générales d'Utilisation</a>
+                                            <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'cgu'; ?>/CGU">Conditions Générales d'Utilisation</a>
                                         </p>
                                         <div>
                                             <?php 
