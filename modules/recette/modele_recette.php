@@ -48,9 +48,11 @@ class ModeleRecette extends Connexion {
                     VALUES (:titre, :temps, :difficulte, :cuisson, :preparation, :categorie, :image)');
                 $reponse = array(':titre' => $titre, ':temps' => $tmps, ':difficulte' => $difficulte, ':cuisson' => $cuisson, ':preparation' => $preparation, ':categorie' => $categorie, ':image' => $img);
                 $prepaInsert->execute($reponse);
-                $dernier_id = Connexion::$bdd->insert_id;
-                var_dump($dernier_id);
-                return $dernier_id;
+
+                $dernier_id = Connexion::$bdd->lastInsertId();
+
+                $dernier_recette = $this->getRecette($dernier_id);
+                return $dernier_recette;
             } catch (PDOException $e) {
                 echo $e;
         }

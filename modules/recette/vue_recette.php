@@ -16,7 +16,7 @@ class VueRecette
                 <div class="debut">
                     <h1>Recettes</h1>
                     <div class="recherche">
-                        <input type="search" id="recette-search" name="recette" placeholder="Rechercher..">
+                        <input type="search" id="recette-search" name="recette" placeholder="Rechercher...">
                     </div>
                     <div class="categ-ajout">
                         <div class="select">
@@ -25,7 +25,7 @@ class VueRecette
                                 <?php
                                 foreach ($categories as &$categorie) {
                                 ?>
-                                    <option value="<?= $categorie['id'] ?>"><?= $categorie['nom'] ?></option>
+                                    <option value="<?=$categorie['id']?>"><?=$categorie['nom']?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -37,7 +37,7 @@ class VueRecette
                         <article class="une-recette" href="">
                             <a href="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'recette'.DIRECTORY_SEPARATOR.'affichage'.DIRECTORY_SEPARATOR.$recette['id']?>" class="une-recette-link">
                                 <div class="img-recette">
-                                    <img src="./data/img_recette/<?php echo $recette['image'] ?>">
+                                    <img src="<?php echo PATHBASE.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'img_recette'.DIRECTORY_SEPARATOR.$recette['image'] ?>">
                                 </div>
                                 <div class="overlay">
                                     <h4><?= $recette['titre'] ?></h4>
