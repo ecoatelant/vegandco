@@ -33,9 +33,7 @@
                 $requete->execute();
                 $resultat = $requete->fetchAll();
                 return $resultat;
-            } catch (PDOException $e) {
-                echo $e;
-            }
+            } catch (PDOException $e) {}
         }
 
     }
